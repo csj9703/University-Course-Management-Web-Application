@@ -1,3 +1,46 @@
+<?php 
+  include "config/database.php";
+  require_once("user.php");
+
+  $email = $password = '';
+  $emailErr = $passwordErr = '';
+  if(isset($_POST['submit'])){
+    // Validate the email
+    if(empty($_POST['email'])){
+      $emailErr = 'E-mail is required!';
+    }else{
+      $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    }
+
+    // Validate the password
+    if(empty($_POST['password'])){
+      $passwordErr = 'Password is required!';
+    }else{
+      $password = $_POST['password'];
+    }
+
+    if (empty($emailErr) && empty($passwordErr)){
+      $user = new User($email, $password);
+      // Prints out the email and password entered on top
+      echo "E-mail: " . $user->get_email() . "<br>";
+      echo "Password: " . $user->get_password() . "<br>";
+      
+      // Loads the admin credential from the test database
+      $sql = 'SELECT * FROM users';
+      $result = mysqli_query($conn, $sql);
+      $admin = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+      // Checks if the entered credential is the same as the admin credential
+      if($admin[0]['email'] == $user->get_email() &&
+      $admin[0]['password'] == $user->get_password()){
+        echo "Welcome Admin!";
+       }else{
+        echo "Welcome " . $email . "!";
+       }
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,24 +65,28 @@
                   <img src="img/logo.png" style="width: 350px;" alt="logo">
                 </div>
 
-                <form>
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                   <p>Please login to your account</p>
                   <!-- Email form -->
                   <div class="form-outline mb-4">
-                    <input type="email" id="email" class="form-control"
+                    <input type="email" id="email" name="email" class="form-control <?php echo $emailErr ? 'is-invalid' : null; ?>"
                       placeholder="E-mail" />
+                      <div class="invalid-feedback">
+                        <?php echo $emailErr; ?>
+                      </div>
                   </div>
                   <!-- Password form -->
                   <div class="form-outline mb-4">
-                    <input type="password" id="password" class="form-control"
+                    <input type="password" id="password" name="password" class="form-control <?php echo $passwordErr ? 'is-invalid' : null; ?>"
                      placeholder="Password"/>
+                     <div class="invalid-feedback">
+                        <?php echo $passwordErr; ?>
+                      </div>
                   </div>
                   <!-- Login button -->
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg gradient-custom mb-3 w-75" type="button">Log
-                      in</button>
+                    <input class="btn btn-primary fa-lg gradient-custom mb-3 w-75" type="submit" name="submit" value="Login">
                   </div>
-
                 </form>
 
               </div>
