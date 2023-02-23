@@ -1,8 +1,8 @@
 <?php
-    define("DB_HOST", 'localhost');
-    define("DB_USER", 'dev');
-    define("DB_PASS", '123');
-    define("DB_NAME", 'cpsc471_dev_db');
+    define("DB_HOST", 'cpsc471-projectdb.c8s4n5ifh9ly.us-east-1.rds.amazonaws.com');
+    define("DB_USER", 'admin');
+    define("DB_PASS", 'cpsc471gp48');
+    define("DB_NAME", 'mysql');
 
     // Create connection
     $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
