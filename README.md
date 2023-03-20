@@ -15,3 +15,9 @@ Project for the Database Management System course.
     - Admin credentials
         - **E-mail**: bob.admin@ucalgary.ca
         - **Password**: adminpass
+       
+# Connecting To The AWS Database
+1. Download [MySQL Workbench](https://www.mysql.com/products/workbench/) or your choice of MySQL Tool.
+2. Connect using the endpoint: cpsc471-project-db.c3dvoz4qikix.us-west-1.rds.amazonaws.com
+    - **Username:** admin
+    - **Password:** cpsc471gp48
