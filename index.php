@@ -1,9 +1,11 @@
 <?php 
   include "config/database.php";
+  include "login.php";
   require_once("user.php");
 
   $email = $password = '';
   $emailErr = $passwordErr = '';
+  $loginErr = 0;
   if(isset($_POST['submit'])){
     // Validate the email
     if(empty($_POST['email'])){
@@ -20,23 +22,7 @@
     }
 
     if (empty($emailErr) && empty($passwordErr)){
-      $user = new User($email, $password);
-      // Prints out the email and password entered on top
-      echo "E-mail: " . $user->get_email() . "<br>";
-      echo "Password: " . $user->get_password() . "<br>";
-      
-      // Loads the admin credential from the test database
-      $sql = 'SELECT * FROM users';
-      $result = mysqli_query($conn, $sql);
-      $admin = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-      // Checks if the entered credential is the same as the admin credential
-      if($admin[0]['email'] == $user->get_email() &&
-      $admin[0]['password'] == $user->get_password()){
-        echo "Welcome Admin!";
-       }else{
-        echo "Welcome " . $email . "!";
-       }
+      $loginErr = login($conn, $email, $password);
     }
   }
 ?>
@@ -67,6 +53,11 @@
 
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                   <p>Please login to your account</p>
+                  <?php if($loginErr==-1): ?>
+                    <div class="alert alert-danger" role="alert">
+                      Incorrect Credential!
+                    </div>
+                  <?php endif; ?>
                   <!-- Email form -->
                   <div class="form-outline mb-4">
                     <input type="email" id="email" name="email" class="form-control <?php echo $emailErr ? 'is-invalid' : null; ?>"
