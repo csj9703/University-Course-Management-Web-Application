@@ -9,3 +9,18 @@
   background: linear-gradient(to right, rgba(214,0,28,1), rgba(255,205,0,1))
 }
 
+/* Header Section */
+#header .navbar-brand {
+  margin-left: 10px;
+}
+
+#header .nav-item {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#header .nav-link {
+  color: black;
+  padding: 0 18px;
+}
