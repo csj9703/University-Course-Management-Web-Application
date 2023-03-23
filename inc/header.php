@@ -4,7 +4,7 @@
             <img src="img/UC-horz-rgb.png" width="200" class="d-inline-block align-top" alt="">   
         </a>
         <h4 style="margin-bottom:10px;color:white;margin-right: 100px;padding-top: 5px;padding-left: 10px;">Welcome, <?php echo $_SESSION['fname'] ." ". $_SESSION['lname'];?></h4>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggler">

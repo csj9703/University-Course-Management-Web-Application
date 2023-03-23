@@ -1,7 +1,6 @@
 <?php 
   include "config/database.php";
   include "login.php";
-  require_once("user.php");
 
   $email = $password = '';
   $emailErr = $passwordErr = '';
