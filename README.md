@@ -18,6 +18,6 @@ Project for the Database Management System course.
        
 # Connecting To The AWS Database
 1. Download [MySQL Workbench](https://www.mysql.com/products/workbench/) or your choice of MySQL Tool.
-2. Connect using the endpoint: cpsc471-project-db.c3dvoz4qikix.us-west-1.rds.amazonaws.com
+2. Connect using the endpoint at the Hostname field: cpsc471-project-db.c3dvoz4qikix.us-west-1.rds.amazonaws.com
     - **Username:** admin
     - **Password:** cpsc471gp48
