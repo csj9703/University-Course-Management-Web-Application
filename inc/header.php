@@ -1,18 +1,19 @@
 <section id="header">
 <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
         <a class="navbar-brand" href="homepage.php">
-        <img src="img/interlock.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="img/UC-horz-rgb.png" width="200" class="d-inline-block align-top" alt="">   
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+        <h4 style="margin-bottom:10px;color:white;margin-right: 100px;padding-top: 5px;padding-left: 10px;">Welcome, <?php echo $_SESSION['fname'] ." ". $_SESSION['lname'];?></h4>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+        <div class="collapse navbar-collapse" id="navbarToggler">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item btn btn-light">
               <a class="nav-link" href="homepage.php">Home</a>
             </li>
             <li class="nav-item btn btn-light">
-              <a class="nav-link" href="">Placeholder</a>
+              <a class="nav-link" href="">My Courses</a>
             </li>
             <li class="nav-item btn btn-light">
               <a class="nav-link" href="logout.php">Logout</a>
