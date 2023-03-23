@@ -4,7 +4,7 @@
     function login(mysqli $conn, string $email, string $pwd){
         session_start();
         $hashpwd = hash('sha256', $pwd);
-        $query = "SELECT COUNT(*) AS user FROM user WHERE email='$email' AND upwd='$hashpwd'";
+        $query = "SELECT COUNT(*) AS C FROM user WHERE email='$email' AND upwd='$hashpwd'";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
         if (intval($row[0]['C']) == 1) {
