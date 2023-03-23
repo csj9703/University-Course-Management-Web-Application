@@ -10,14 +10,11 @@
 }
 
 /* Header Section */
-#header .navbar-brand {
-  margin-left: 10px;
-}
-
 #header .nav-item {
-  margin-top: 5px;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 20px;
 }
 
 #header .nav-link {
