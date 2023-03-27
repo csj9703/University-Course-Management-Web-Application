@@ -17,7 +17,7 @@
     <?php if ($_SESSION['privilege'] == 0){
       include 'courseSearchBox.php';
     }else{
-      include 'createCourseBox.php';
+      include 'courseCreateBox.php';
     }
     ?>
   </div>

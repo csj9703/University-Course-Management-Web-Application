@@ -3,16 +3,30 @@
       <div class="card-body">
         <h6 class="card-title">Search Options: </h6>
         <div class="input-group rounded">
+        <!-- Course Semester Selection -->
+        <div class="input-group mt-3 mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="cSemesterSelect">Course Semester: </lable>
+        </div>
+        <select class="form-select" id="cSemesterSelect">
+            <!-- Semester Placeholder -->
+            <option selected>Choose Semester</option>
+            <option value="1">FALL 2022</option>
+            <option value="2">WINTER 2023</option>
+            <option value="3">SPRING 2023</option>
+        </select>
+        </div>
           <!-- Course Department Input -->
           <div class="input-group mt-3 mb-3">
             <div class="input-group-prepend">
               <label class="input-group-text" for="cDepartSelect">Course Department: </lable>
             </div>
             <select class="form-select" id="cDepartSelect">
+              <!-- Department Placeholder -->
               <option selected>Choose Course Department</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="1">CPSC</option>
+              <option value="2">MATH</option>
+              <option value="3">SENG</option>
             </select>
           </div>
           <!-- Course Number Input -->
