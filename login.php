@@ -26,4 +26,3 @@
         $_SESSION['lname'] = $user_arr['lname'];
         $_SESSION['privilege'] = $user_arr['privilege'];
     }
-?>
