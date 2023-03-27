@@ -12,9 +12,11 @@
             <li class="nav-item btn btn-light">
               <a class="nav-link" href="homepage.php">Home</a>
             </li>
-            <li class="nav-item btn btn-light">
-              <a class="nav-link" href="">My Courses</a>
-            </li>
+            <?php if ($_SESSION['privilege'] == 0): ?>
+              <li class="nav-item btn btn-light">
+                  <a class="nav-link" href="">My Courses</a>
+              </li>
+            <?php endif ?>
             <li class="nav-item btn btn-light">
               <a class="nav-link" href="logout.php">Logout</a>
             </li>
