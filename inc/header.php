@@ -1,3 +1,4 @@
+<!-- Header Navbar: Should be imported for every page -->
 <section id="header">
   <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
     <a class="navbar-brand" href="homepage.php">
