@@ -1,7 +1,7 @@
 <?php
+session_start();
 include "config/database.php";
 include "backend/userInfoQuery.php";
-session_start();
 setupMajorMinor($conn);
 if (!isset($_SESSION['logged_in'])) {
     header("Location: index.php");
