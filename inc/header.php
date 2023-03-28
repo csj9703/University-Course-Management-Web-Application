@@ -13,7 +13,7 @@
         <li class="nav-item btn btn-light">
           <a class="nav-link" href="homepage.php">Home</a>
         </li>
-        <?php if ($_SESSION['privilege'] < 1) : ?>
+        <?php if ($_SESSION['privilege'] == 0) : ?>
           <li class="nav-item btn btn-light">
             <a class="nav-link" href="userInfoPage.php">My Information</a>
           </li>

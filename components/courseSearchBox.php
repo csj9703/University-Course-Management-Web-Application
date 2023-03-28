@@ -33,7 +33,12 @@
       <!-- Course Number Input -->
       <div class="input-group mt-3 mb-3">
         <span class="input-group-text">Course Number: </span>
-        <input type="text" class="form-control" placeholder="Enter a course number">
+        <select class="form-select " id="cNumSelect">
+          <option selected>200-299</option>
+          <option value="1">300-399</option>
+          <option value="2">400-499</option>
+          <option value="3">500-699</option>
+        </select>
       </div>
       <!-- Course Name Input -->
       <div class="input-group mt-3 mb-3">
