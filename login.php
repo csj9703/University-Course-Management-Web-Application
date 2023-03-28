@@ -22,6 +22,7 @@ function setupSession(mysqli $conn, string $email)
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $user_arr = $row[0];
+    $_SESSION['logged_in'] = True;
     $_SESSION['uid'] = $user_arr['uid'];
     $_SESSION['email'] = $user_arr['email'];
     $_SESSION['fname'] = $user_arr['fname'];

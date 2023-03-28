@@ -36,17 +36,18 @@
                 <!-- Semester Header -->
                 <div class="card-header">Fall 2022</div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
+                    <a href="#" class="list-group-item list-group-item-action">Course 1</a>
+                    <a href="#" class="list-group-item list-group-item-action">Course 2</a>
+                    <a href="#" class="list-group-item list-group-item-action">Course 3</a>
                 </ul>
                 <!-- Semester Divider -->
                 <hr>
+                <!-- Semester Header -->
                 <div class="card-header">Winter 2023</div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
+                    <a href="#" class="list-group-item list-group-item-action">Course 1</a>
+                    <a href="#" class="list-group-item list-group-item-action">Course 2</a>
+                    <a href="#" class="list-group-item list-group-item-action">Course 3</a>
                 </ul>
             </div>
         </div>
