@@ -36,7 +36,7 @@
                 <!-- Semester Header -->
                 <div class="card-header">Fall 2022</div>
                 <ul class="list-group list-group-flush">
-                    <a href="#" class="list-group-item list-group-item-action">Course 1</a>
+                    <a href="courseDetailPage.php" class="list-group-item list-group-item-action">Course 1</a>
                     <a href="#" class="list-group-item list-group-item-action">Course 2</a>
                     <a href="#" class="list-group-item list-group-item-action">Course 3</a>
                 </ul>
