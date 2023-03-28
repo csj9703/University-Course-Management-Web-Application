@@ -14,7 +14,7 @@
         </li>
         <?php if ($_SESSION['privilege'] == 0) : ?>
           <li class="nav-item btn btn-light">
-            <a class="nav-link" href="">My Courses</a>
+            <a class="nav-link" href="userInfoPage.php">My Information</a>
           </li>
         <?php endif ?>
         <li class="nav-item btn btn-light">

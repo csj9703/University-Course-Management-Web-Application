@@ -17,9 +17,9 @@ session_start();
   <div class="container-fluid gradient-custom">
     <div>
       <?php if ($_SESSION['privilege'] == 0) {
-        include 'courseSearchBox.php';
+        include 'components/courseSearchBox.php';
       } else {
-        include 'courseCreateBox.php';
+        include 'components/courseCreateBox.php';
       }
       ?>
     </div>
