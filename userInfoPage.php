@@ -1,6 +1,6 @@
 <?php
 include "config/database.php";
-include "userInfoQuery.php";
+include "backend/userInfoQuery.php";
 session_start();
 setupMajorMinor($conn);
 if (!isset($_SESSION['logged_in'])) {
