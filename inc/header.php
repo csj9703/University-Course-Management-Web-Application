@@ -19,7 +19,7 @@
           </li>
         <?php endif ?>
         <li class="nav-item btn btn-light">
-          <a class="nav-link" href="logout.php">Logout</a>
+          <a class="nav-link" href="backend/logout.php">Logout</a>
         </li>
       </ul>
     </div>

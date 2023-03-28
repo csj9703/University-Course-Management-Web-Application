@@ -18,7 +18,7 @@ function login(mysqli $conn, string $email, string $pwd)
 // Setup the session to store session variables for the logged in user
 function setupSession(mysqli $conn, string $email)
 {
-    $query = "SELECT uid, email, fname, lname, privilege, major_in.dep_name AS major, minor_in.dep_name AS minor FROM user, major_in, minor_in WHERE major_in.sid=uid AND major_in.sid=uid AND email='$email'";
+    $query = "SELECT uid, email, fname, lname, privilege FROM user WHERE email='$email'";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $user_arr = $row[0];
@@ -28,6 +28,4 @@ function setupSession(mysqli $conn, string $email)
     $_SESSION['fname'] = $user_arr['fname'];
     $_SESSION['lname'] = $user_arr['lname'];
     $_SESSION['privilege'] = $user_arr['privilege'];
-    $_SESSION['major'] = $user_arr['major'];
-    $_SESSION['minor'] = $user_arr['minor'];
 }
