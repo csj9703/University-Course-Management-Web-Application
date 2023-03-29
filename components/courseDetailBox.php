@@ -35,8 +35,25 @@
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="courseCollapse">
 
+                <!-- Section 1 -->
                 <div class="card text-dark bg-light mb-3">
                     <span class="input-group-text">Section 1: </span>
+
+                    <table>
+                <tr>
+                    <td>
+                        <div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Professor: </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Textbooks: </span>
+                        </div>
+                    </td>
+                </tr>
+                </table>
+                
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text">Professor: </span>
                     </div>
@@ -49,8 +66,11 @@
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text">Additional required materials: </span>
                     </div>
+
+
                 </div>
 
+                <!-- Section 2 -->
                 <div class="card text-dark bg-light mb-3">
                     <span class="input-group-text">Section 2: </span>
                     <div class="input-group mt-3 mb-3">
