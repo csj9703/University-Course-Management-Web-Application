@@ -1,4 +1,3 @@
-<!-- TODO: Link Course List Backened -->
 <?php $semArr = query_num_of_course_taken_per_sem($conn); ?>
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
     <div class="card-header">My Information</div>
