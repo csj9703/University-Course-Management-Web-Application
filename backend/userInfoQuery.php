@@ -13,6 +13,7 @@ function setupMajorMinor(mysqli $conn)
     $_SESSION['minor'] = $user_arr['minor'];
 }
 
+// Get the number of course taken per semester
 function query_num_of_course_taken_per_sem(mysqli $conn)
 {
     $user_id = $_SESSION['uid'];
@@ -26,6 +27,7 @@ function query_num_of_course_taken_per_sem(mysqli $conn)
     return $row;
 }
 
+// Get the course taken per semester
 function query_courses_taken_on_semester(mysqli $conn, string $semester)
 {
     $query = "SELECT c.dep_title, c.c_num, c.course_name AS c_name
