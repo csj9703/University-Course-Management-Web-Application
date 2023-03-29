@@ -24,6 +24,10 @@
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Antirequisites: </span>
             </div>
+            <!-- Department Info -->
+            <div class="input-group mt-3 mb-3">
+                <span class="input-group-text">Department: </span>
+            </div>
 
             <!-- Section Info -->
             <div class="input-group mt-3 mb-3">
@@ -38,6 +42,9 @@
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text">Textbooks: </span>
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text">Class Time: </span>
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text">Additional required materials: </span>
