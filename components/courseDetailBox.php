@@ -23,24 +23,32 @@
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Antirequisites: </span>
             </div>
-            <!-- Courses Accordion Collapse -->
+            <!-- Section Info -->
             <div class="input-group mt-3 mb-3">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseCollapse" aria-expanded="false" aria-controls="antiReqCollapse">My Courses</button>
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseCollapse" aria-expanded="false" aria-controls="antiReqCollapse">Sections</button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="courseCollapse">
-                <!-- Semester Header -->
-                <?php for ($i = 0; $i < sizeof($semArr); $i++) : ?>
-                    <div class="card-header"><?php echo $semArr[$i]['semester'] ?></div>
-                    <ul class="list-group list-group-flush">
-                        <?php for ($c = 0; $c < $semArr[$i]['count']; $c++) : ?>
-                            <?php $courses = query_courses_taken_on_semester($conn, $semArr[$i]['semester']) ?>
-                            <a href="courseDetailPage.php" class="list-group-item list-group-item-action"><?php echo $courses[$c]['dep_title'] . " " . $courses[$c]['c_num'] . " - " . $courses[$c]['c_name'] ?></a>
-                        <?php endfor; ?>
-                    </ul>
-                    <hr>
-                <?php endfor; ?>
-                <!-- Semester Divider -->
             </div>
+            <!-- Course evaluation -->
+            <!-- collapse card -->
+            <div class="input-group mt-3 mb-3">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseEvalCollapse" aria-expanded="false" aria-controls="courseEvalCollapse">Course Evaluation</button>
+            </div>
+            <div class="card card-body collapse" aria-expanded="false" id="courseEvalCollapse">
+                
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text">Course Difficulty: </span>
+                </div>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text">Course Workload: </span>
+                </div>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text">Course Rating: </span>
+                </div>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text">Course Comments: </span>
+                </div>
+
         </div>
     </div>
 </div>
