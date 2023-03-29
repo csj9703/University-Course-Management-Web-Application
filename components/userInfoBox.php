@@ -45,7 +45,6 @@
                     </ul>
                     <hr>
                 <?php endfor; ?>
-                <!-- Semester Divider -->
             </div>
         </div>
     </div>

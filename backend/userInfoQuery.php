@@ -19,7 +19,7 @@ function query_num_of_course_taken_per_sem(mysqli $conn)
     $user_id = $_SESSION['uid'];
     $query = "SELECT c.semester, COUNT(*) AS count
         FROM student_course_taken AS sc
-        INNER JOIN course AS c ON c.c_num=sc.c_num AND c.dep_title=sc.dep_title
+        INNER JOIN course AS c ON c.c_num=sc.c_num AND c.dep_title=sc.dep_title AND c.semester=sc.c_sem
         INNER JOIN student AS s ON s.uid=sc.sid AND s.uid='$user_id'
         GROUP BY semester;";
     $result = mysqli_query($conn, $query);
