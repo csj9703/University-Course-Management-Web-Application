@@ -6,31 +6,38 @@
             <!-- Course Name -->
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Course Name: </span>
+                <label class="input-group-text bg-light">Database</label>
             </div>
             <!-- Course Description -->
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Course Description: </span>
+                <label class="input-group-text bg-light">TEST</label>
             </div>
             <!-- Course Credits -->
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Course Credits: </span>
+                <label class="input-group-text bg-light">TEST</label>
             </div>
             <!-- Prerequisites Info -->
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Prerequisites: </span>
+                <label class="input-group-text bg-light">TEST</label>
             </div>
             <!-- Antirequisites Info -->
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Antirequisites: </span>
+                <label class="input-group-text bg-light">TEST</label>
             </div>
             <!-- Department Info -->
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Department: </span>
+                <label class="input-group-text bg-light">TEST</label>
             </div>
-            
+
             <!-- Semester Info -->
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Semester: </span>
+                <label class="input-group-text bg-light">TEST</label>
             </div>
 
             <!-- Section Info -->
@@ -38,84 +45,28 @@
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseCollapse" aria-expanded="false" aria-controls="antiReqCollapse">Sections</button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="courseCollapse">
-
                 <!-- Section 1 -->
-                <div class="card text-dark bg-light mb-3">
-                    <span class="input-group-text">Section 1: </span>
-                    <table>
-                    <tr>
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Professor: </span>
-                            </div>
-                        </td>
-
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Location: </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Textbook: </span>
-                             </div>
-                        </td>
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Time: </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                         <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Additional Material Required: </span>
-                            </div>
-                        </td>
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Capacity: </span>
-                            </div>
-                        </td>
-                    </tr>
+                <td></td>
+                <td class="details-row-cell" colspan="3">
+                    <table id="uofc-table-3" class="uofc-table">
+                        <tbody>
+                            <tr class="">
+                                <td style="width:1em;padding:1px 0 1px 9px"></td>
+                                <!-- Section id -->
+                                <td style="width:5em;padding-left:3px">L01</td>
+                                <!-- Day and Time -->
+                                <td style="width:11em; text-align: center;">WF 16:00&nbsp;-&nbsp;17:50<br></td>
+                                <!-- Location -->
+                                <td style="width:16em; text-align: center;">WEB&nbsp;BASED<br></td>
+                                <!-- Instructor -->
+                                <td style="width:16em; text-align: center;"><a href="">Professor Placeholder</a></td>
+                                <!-- Textbook -->
+                                <td style="width:100px;text-align:right;"></td>
+                                <td style="width:70px"><a href="">Textbook</a></td>
+                            </tr>
+                        </tbody>
                     </table>
-                </div>
-
-                <!-- Section 2 -->
-                <div class="card text-dark bg-light mb-3">
-                    <span class="input-group-text">Section 2: </span>
-                    <table>
-                    <tr>
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Professor: </span>
-                            </div>
-                        </td>
-
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Location: </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Textbook: </span>
-                             </div>
-                        </td>
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Time: </span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                         <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Additional Material Required: </span>
-                            </div>
-                        </td>
-                        <td><div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Capacity: </span>
-                            </div>
-                        </td>
-                    </tr>
-                    </table>
-                </div>
-
-
+                </td>
             </div>
 
             <!-- Course evaluation -->
@@ -123,18 +74,23 @@
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseEvalCollapse" aria-expanded="false" aria-controls="courseEvalCollapse">Course Evaluation</button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="courseEvalCollapse">
-                
+
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text">Course Difficulty: </span>
+                    <label class="input-group-text bg-light">TEST</label>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text">Course Workload: </span>
+                    <label class="input-group-text bg-light">TEST</label>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text">Course Rating: </span>
+                    <label class="input-group-text bg-light">TEST</label>
                 </div>
                 <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text">Course Comments: </span>
+                    <h5 class="card-title">Course Comments: </h5>
+                    <hr>
+                    <p class="card-text bg-light">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                 </div>
 
             </div>
