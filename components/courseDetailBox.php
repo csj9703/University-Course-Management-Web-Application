@@ -67,7 +67,7 @@
             <div class="card card-body collapse" aria-expanded="false" id="courseEvalCollapse">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <div class="input-group mt-3 mb-3">
+                        <div class="input-group mb-3">
                             <span class="input-group-text bg-light">Course Difficulty: </span>
                             <label class="input-group-text bg-light">TEST</label>
                         </div>
@@ -75,11 +75,11 @@
                             <span class="input-group-text bg-light">Course Workload: </span>
                             <label class="input-group-text bg-light">TEST</label>
                         </div>
-                        <div class="input-group mt-3 mb-3">
+                        <div class="input-group mt-3 mb-6">
                             <span class="input-group-text bg-light">Course Rating: </span>
                             <label class="input-group-text bg-light">TEST</label>
                         </div>
-                        <div class="input-group mt-4 mb-3">
+                        <div class="input-group mt-4 mb-3" style="padding-top: 20px;">
                             <h5 class="card-title">Course Review: </h5>
                             <hr>
                             <p class="card-text bg-light">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
