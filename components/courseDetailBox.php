@@ -1,51 +1,42 @@
 <!-- TODO: Link Course List Backened -->
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
-    <div class="card-header">Course Details</div>
+    <div class="card-header"><b>Course Details</b></div>
     <div class="card-body">
         <div class="input-group rounded">
             <!-- Course Name -->
             <div class="input-group mt-3 mb-3">
-                <span class="input-group-text">Course Name: </span>
-                <label class="input-group-text bg-light">Database</label>
+                <h5 class="card-title"><b>CPSC 471 - Data Base Management Systems - Winter 2023</b></h5>
             </div>
             <!-- Course Description -->
-            <div class="input-group mt-3 mb-3">
-                <span class="input-group-text">Course Description: </span>
-                <label class="input-group-text bg-light">TEST</label>
+            <div class="input-group mt-2 mb-3">
+                <p class="card-text bg-light">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             </div>
             <!-- Course Credits -->
-            <div class="input-group mt-3 mb-3">
-                <span class="input-group-text">Course Credits: </span>
-                <label class="input-group-text bg-light">TEST</label>
+            <div class="card-body">
+                <h5 class="card-title"><b>Credits:</b> &nbsp;</h5>
+                <p class="card-text bg-light" style="width: 10em; text-align: center;">3.0</p>
             </div>
             <!-- Prerequisites Info -->
-            <div class="input-group mt-3 mb-3">
-                <span class="input-group-text">Prerequisites: </span>
-                <label class="input-group-text bg-light">TEST</label>
+            <div class="card-body">
+                <span class="input-group-text"><b>Prerequisite(s):</b>&nbsp;</span>
+                <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
+                    3 units from Computer Science 219, 233, 235, Computer Engineering 335, 339 or Software Engineering for Engineers 337.
+                </p>
             </div>
             <!-- Antirequisites Info -->
-            <div class="input-group mt-3 mb-3">
-                <span class="input-group-text">Antirequisites: </span>
-                <label class="input-group-text bg-light">TEST</label>
-            </div>
-            <!-- Department Info -->
-            <div class="input-group mt-3 mb-3">
-                <span class="input-group-text">Department: </span>
-                <label class="input-group-text bg-light">TEST</label>
-            </div>
-
-            <!-- Semester Info -->
-            <div class="input-group mt-3 mb-3">
-                <span class="input-group-text">Semester: </span>
-                <label class="input-group-text bg-light">TEST</label>
+            <div class="card-body mb-3">
+                <span class="input-group-text"><b>Antirequisite(s):</b>&nbsp;</span>
+                <label class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
+                    Credit for Computer Science 319 and 331 will not be allowed. Computer Science majors are not permitted to register in this course.
+                </label>
             </div>
 
             <!-- Section Info -->
             <div class="input-group mt-3 mb-3">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseCollapse" aria-expanded="false" aria-controls="antiReqCollapse">Sections</button>
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sectionCollapse" aria-expanded="false" aria-controls="sectionCollapse"><b>Sections</b></button>
             </div>
-            <div class="card card-body collapse" aria-expanded="false" id="courseCollapse">
-                <!-- Section 1 -->
+            <div class="card card-body collapse" aria-expanded="false" id="sectionCollapse">
+                <!-- Section -->
                 <td></td>
                 <td class="details-row-cell" colspan="3">
                     <table id="uofc-table-3" class="uofc-table">
@@ -71,28 +62,32 @@
 
             <!-- Course evaluation -->
             <div class="input-group mt-3 mb-3">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseEvalCollapse" aria-expanded="false" aria-controls="courseEvalCollapse">Course Evaluation</button>
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseEvalCollapse" aria-expanded="false" aria-controls="courseEvalCollapse"><b>Course Evaluation</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="courseEvalCollapse">
-
-                <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text">Course Difficulty: </span>
-                    <label class="input-group-text bg-light">TEST</label>
-                </div>
-                <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text">Course Workload: </span>
-                    <label class="input-group-text bg-light">TEST</label>
-                </div>
-                <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text">Course Rating: </span>
-                    <label class="input-group-text bg-light">TEST</label>
-                </div>
-                <div class="input-group mt-3 mb-3">
-                    <h5 class="card-title">Course Comments: </h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="input-group mt-3 mb-3">
+                            <span class="input-group-text bg-light">Course Difficulty: </span>
+                            <label class="input-group-text bg-light">TEST</label>
+                        </div>
+                        <div class="input-group mt-3 mb-3">
+                            <span class="input-group-text bg-light">Course Workload: </span>
+                            <label class="input-group-text bg-light">TEST</label>
+                        </div>
+                        <div class="input-group mt-3 mb-3">
+                            <span class="input-group-text bg-light">Course Rating: </span>
+                            <label class="input-group-text bg-light">TEST</label>
+                        </div>
+                        <div class="input-group mt-4 mb-3">
+                            <h5 class="card-title">Course Review: </h5>
+                            <hr>
+                            <p class="card-text bg-light">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        </div>
+                        <h5 class="card-title" style="text-align: right">Review Date: 2023-03-30</h5>
+                    </li>
                     <hr>
-                    <p class="card-text bg-light">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                </div>
-
+                </ul>
             </div>
         </div>
     </div>

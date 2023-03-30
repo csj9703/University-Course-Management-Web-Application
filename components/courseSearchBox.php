@@ -1,6 +1,6 @@
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
   <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
-    <div class="card-header">Search For Courses</div>
+    <div class="card-header"><b>Search For Courses</b></div>
     <div class="card-body">
       <h6 class="card-title">Search Options: </h6>
       <div class="input-group rounded">
