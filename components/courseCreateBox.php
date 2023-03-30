@@ -76,22 +76,35 @@
                 </div>
                 <!-- Anti-Req Accordion Collapse -->
                 <div class="input-group mt-3 mb-3">
-                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#antiReqCollapse" aria-expanded="false" aria-controls="antiReqCollapse">Has Anti-requisite(s)</button>
+                    <!-- Anti-Requisites Error Alert -->
+                    <?php if (!empty($antiReqErr)) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo "Anti-Requisites Error: " . $antiReqErr . " doesn't exist!" ?>
+                        </div>
+                    <?php endif; ?>
+                    <a class="accordion-button collapsed" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#antiReqCollapse" aria-expanded="false" aria-controls="antiReqCollapse">Has Anti-requisite(s)</a>
                 </div>
                 <div class="card card-body collapse" aria-expanded="false" id="antiReqCollapse">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text">Anti-requitsite Course(s): </span>
-                        <input type="text" class="form-control" placeholder="Enter Anti-requisite courses separated by comma ',' (E.g. CPSC 203, CPSC 205)">
+                        <input type="text" class="form-control" name="antiReq" placeholder="Enter Anti-requisite courses separated by comma ',' (E.g. CPSC 203, CPSC 205)">
                     </div>
                 </div>
+
                 <!-- Pre-Req Accordion Collapse -->
                 <div class="input-group mt-3 mb-3">
-                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#preReqCollapse" aria-expanded="false" aria-controls="antiReqCollapse">Has Pre-requisite(s)</button>
+                    <!-- Prerequisites Error Alert -->
+                    <?php if (!empty($preReqErr)) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo "Prerequisites Error: " . $preReqErr . " doesn't exist!" ?>
+                        </div>
+                    <?php endif; ?>
+                    <a class="accordion-button collapsed" style="text-decoration: none;" data-bs-toggle="collapse" data-bs-target="#preReqCollapse" aria-expanded="false" aria-controls="antiReqCollapse">Has Pre-requisite(s)</a>
                 </div>
                 <div class="card card-body collapse" aria-expanded="false" id="preReqCollapse">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text">Pre-requitsite Course(s): </span>
-                        <input type="text" class="form-control" placeholder="Enter Pre-requisite courses separated by comma ',' (E.g. CPSC 203, CPSC 205)">
+                        <input type="text" class="form-control" name="preReq" placeholder="Enter Pre-requisite courses separated by comma ',' (E.g. CPSC 203, CPSC 205)">
                     </div>
                 </div>
                 <div class="input-group mt-3 mb-3">
