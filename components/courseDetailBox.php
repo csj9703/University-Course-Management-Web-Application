@@ -3,7 +3,6 @@
     <div class="card-header">Course Details</div>
     <div class="card-body">
         <div class="input-group rounded">
-
             <!-- Course Name -->
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Course Name: </span>
@@ -28,6 +27,11 @@
             <div class="input-group mt-3 mb-3">
                 <span class="input-group-text">Department: </span>
             </div>
+            
+            <!-- Semester Info -->
+            <div class="input-group mt-3 mb-3">
+                <span class="input-group-text">Semester: </span>
+            </div>
 
             <!-- Section Info -->
             <div class="input-group mt-3 mb-3">
@@ -38,51 +42,79 @@
                 <!-- Section 1 -->
                 <div class="card text-dark bg-light mb-3">
                     <span class="input-group-text">Section 1: </span>
-
                     <table>
-                <tr>
-                    <td>
-                        <div class="input-group mt-3 mb-3">
+                    <tr>
+                        <td><div class="input-group mt-3 mb-3">
                             <span class="input-group-text">Professor: </span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="input-group mt-3 mb-3">
-                            <span class="input-group-text">Textbooks: </span>
-                        </div>
-                    </td>
-                </tr>
-                </table>
-                
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text">Professor: </span>
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text">Textbooks: </span>
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text">Class Time: </span>
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text">Additional required materials: </span>
-                    </div>
+                            </div>
+                        </td>
 
-
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Location: </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Textbook: </span>
+                             </div>
+                        </td>
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Time: </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                         <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Additional Material Required: </span>
+                            </div>
+                        </td>
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Capacity: </span>
+                            </div>
+                        </td>
+                    </tr>
+                    </table>
                 </div>
 
                 <!-- Section 2 -->
                 <div class="card text-dark bg-light mb-3">
                     <span class="input-group-text">Section 2: </span>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text">Professor: </span>
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text">Textbooks: </span>
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text">Additional required materials: </span>
-                    </div>
+                    <table>
+                    <tr>
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Professor: </span>
+                            </div>
+                        </td>
+
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Location: </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Textbook: </span>
+                             </div>
+                        </td>
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Time: </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                         <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Additional Material Required: </span>
+                            </div>
+                        </td>
+                        <td><div class="input-group mt-3 mb-3">
+                            <span class="input-group-text">Capacity: </span>
+                            </div>
+                        </td>
+                    </tr>
+                    </table>
                 </div>
+
 
             </div>
 
