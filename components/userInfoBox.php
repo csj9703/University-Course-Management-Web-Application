@@ -38,8 +38,19 @@
                     <div class="card-header"><b><?php echo $semArr[$i]['semester'] ?></b></div>
                     <ul class="list-group list-group-flush">
                         <?php for ($c = 0; $c < $semArr[$i]['count']; $c++) : ?>
-                            <?php $courses = query_courses_taken_on_semester($conn, $semArr[$i]['semester']) ?>
-                            <a href="courseDetailPage.php" class="list-group-item list-group-item-action"><?php echo $courses[$c]['dep_title'] . " " . $courses[$c]['c_num'] . " - " . $courses[$c]['c_name'] ?></a>
+                            <?php
+                            $courses = query_courses_taken_on_semester($conn, $semArr[$i]['semester']);
+                            $cSem =  $semArr[$i]['semester'];
+                            $cDep_title = $courses[$c]['dep_title'];
+                            $cNum = $courses[$c]['c_num'];
+                            $cName = $courses[$c]['c_name'];
+                            $link = "courseDetailPage.php?cDep_title=" . urlencode($cDep_title) .
+                                "&cNum=" . urlencode($cNum) .
+                                "&cName=" . urlencode($cName) .
+                                "&cSem=" . urlencode($cSem);
+                            ?>
+                            <a href=<?php echo $link ?> class="list-group-item list-group-item-action"><?php echo $cDep_title . " " . $cNum . " - " . $cName ?></a>
+
                         <?php endfor; ?>
                     </ul>
                     <hr>

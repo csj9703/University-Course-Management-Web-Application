@@ -1,20 +1,20 @@
-<!-- TODO: Link Course List Backened -->
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
     <div class="card-header"><b>Course Details</b></div>
     <div class="card-body">
         <div class="input-group rounded">
             <!-- Course Name -->
             <div class="input-group mt-3 mb-3">
-                <h5 class="card-title"><b>CPSC 471 - Data Base Management Systems - Winter 2023</b></h5>
+                <h5 class="card-title" style="padding-left: 15px;"><b><?php echo $cDep_title . " " . $cNum . " - " . $cName . " - " . $cSem ?></b></h5>
             </div>
             <!-- Course Description -->
-            <div class="input-group mt-2 mb-3">
-                <p class="card-text bg-light">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <div class="card-body">
+                <span class="input-group-text"><b>Course Description:</b> &nbsp;</span>
+                <p class="card-text bg-light" style="padding-right: 10px;padding-left: 20px;padding-top: 6px;"><?php echo $cDes ?></p>
             </div>
             <!-- Course Credits -->
             <div class="card-body">
-                <h5 class="card-title"><b>Credits:</b> &nbsp;</h5>
-                <p class="card-text bg-light" style="width: 10em; text-align: center;">3.0</p>
+                <span class="input-group-text"><b>Credits:</b> &nbsp;</span>
+                <p class="card-text bg-light" style="padding-left: 20px; padding-top: 6px;"><?php echo $cCr . " units" ?></p>
             </div>
             <!-- Prerequisites Info -->
             <div class="card-body">
