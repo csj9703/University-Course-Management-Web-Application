@@ -1,6 +1,6 @@
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
     <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
-        <div class="card-header">Create a Course</div>
+        <div class="card-header"><b>Create a Course</b></div>
         <!-- Duplicate Course Alert -->
         <?php if ($cDupErr == -1) : ?>
             <div class="alert alert-danger" role="alert">
