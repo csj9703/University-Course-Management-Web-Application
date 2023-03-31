@@ -4,35 +4,41 @@
         <div class="input-group rounded">
             <!-- Course Name -->
             <div class="input-group mt-3 mb-3">
-                <h5 class="card-title" style="padding-left: 15px;"><b><?php echo $cDep_title . " " . $cNum . " - " . $cName . " - " . $cSem ?></b></h5>
+                <h5 class="card-title" style="padding-left: 15px;">
+                    <b><?php echo $cDep_title . " " . $cNum . " - " . $cName . " - " . $cSem ?></b>
+                </h5>
             </div>
             <!-- Course Description -->
-            <div class="card-body">
+            <div class="row card-body">
                 <span class="input-group-text"><b>Course Description:</b> &nbsp;</span>
-                <p class="card-text bg-light" style="padding-right: 10px;padding-left: 20px;padding-top: 6px;"><?php echo $cDes ?></p>
+                <p class="card-text bg-light" style="padding-right: 10px;padding-left: 20px;padding-top: 6px;">
+                    <?php echo $cDes ?>
+                </p>
             </div>
             <!-- Course Credits -->
-            <div class="card-body">
-                <span class="input-group-text"><b>Credits:</b> &nbsp;</span>
-                <p class="card-text bg-light" style="padding-left: 20px; padding-top: 6px;"><?php echo $cCr . " units" ?></p>
+            <div class="row card-body">
+                <span class="input-group-text"><b>Credits:</b></span>
+                <p class="card-text bg-light" style="padding-left: 20px; padding-top: 6px;">
+                    <?php echo $cCr . " units" ?>
+                </p>
             </div>
             <!-- Prerequisites Info -->
-            <div class="card-body">
-                <span class="input-group-text"><b>Prerequisite(s):</b>&nbsp;</span>
+            <div class="row card-body">
+                <span class="input-group-text"><b>Prerequisite(s):</b></span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
-                    3 units from Computer Science 219, 233, 235, Computer Engineering 335, 339 or Software Engineering for Engineers 337.
+                    <?php echo $cPre; ?>
                 </p>
             </div>
             <!-- Antirequisites Info -->
-            <div class="card-body mb-3">
-                <span class="input-group-text"><b>Antirequisite(s):</b>&nbsp;</span>
-                <label class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
-                    Credit for Computer Science 319 and 331 will not be allowed. Computer Science majors are not permitted to register in this course.
-                </label>
+            <div class="row card-body mb-3">
+                <span class="input-group-text"><b>Antirequisite(s):</b></span>
+                <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
+                    <?php echo $cAnti; ?>
+                </p>
             </div>
 
             <!-- Section Info -->
-            <div class="input-group mt-3 mb-3">
+            <div class="row input-group mt-3 mb-3">
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sectionCollapse" aria-expanded="false" aria-controls="sectionCollapse"><b>Sections</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="sectionCollapse">
@@ -61,7 +67,7 @@
             </div>
 
             <!-- Course evaluation -->
-            <div class="input-group mt-3 mb-3">
+            <div class="row input-group mt-3 mb-3">
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseEvalCollapse" aria-expanded="false" aria-controls="courseEvalCollapse"><b>Course Evaluation</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="courseEvalCollapse">
