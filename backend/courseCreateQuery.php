@@ -68,6 +68,7 @@ if (isset($_POST['submit'])) {
             add_Req('pre_req', $conn, $cNum, $cDep, $cSem, $preReq);
             add_Req('anti_req', $conn, $cNum, $cDep, $cSem, $antiReq);
         }
+        // Redirect to the created course after the course creation
         $link = "courseDetailPage.php?cDep_title=" . urlencode($cDep[1]) .
             "&cNum=" . urlencode($cNum) .
             "&cName=" . urlencode($cName) .

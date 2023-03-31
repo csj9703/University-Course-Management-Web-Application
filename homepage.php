@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "config/database.php";
-include "backend/courseCreateQuery.php";
 if (!isset($_SESSION['logged_in'])) {
   header("Location: index.php");
 }
@@ -22,8 +21,10 @@ if (!isset($_SESSION['logged_in'])) {
   <div class="container-fluid gradient-custom">
     <div>
       <?php if ($_SESSION['privilege'] == 0) {
+        include "backend/courseSearchQuery.php";
         include 'components/courseSearchBox.php';
       } else {
+        include "backend/courseCreateQuery.php";
         include 'components/courseCreateBox.php';
       }
       ?>
