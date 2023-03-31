@@ -1,6 +1,6 @@
 <!-- TODO: Link Course List Backened -->
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
-    <div class="card-header"><b>Course Details</b></div>
+    <div class="card-header"><b>Professor Details</b></div>
     <div class="card-body">
         <div class="input-group rounded">
             <!-- Course Name -->
