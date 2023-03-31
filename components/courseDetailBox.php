@@ -5,7 +5,7 @@
             <!-- Course Name -->
             <div class="input-group mt-3 mb-3">
                 <h5 class="card-title" style="padding-left: 15px;">
-                    <b><?php echo $cDep_title . " " . $cNum . " - " . $cName . " - " . $cSem ?></b>
+                    <b><?php echo "{$cDep_title} {$cNum} - {$cName} - {$cSem}"; ?></b>
                 </h5>
             </div>
             <!-- Course Description -->

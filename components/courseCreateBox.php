@@ -35,7 +35,7 @@
                     <select class="form-select <?php echo $cDepErr ? 'is-invalid' : null; ?>" name="course_department" id="cDepartSelect">
                         <option selected>Choose Course Department</option>
                         <?php for ($i = 0; $i < sizeof($depArr); $i++) : ?>
-                            <option value="<?php echo $depArr[$i]['dep_name'] . "," . $depArr[$i]['dep_title']; ?>"><?php echo $depArr[$i]['dep_name'] . " - " . $depArr[$i]['dep_title']; ?></option>
+                            <option value="<?php echo "{$depArr[$i]['dep_name']},{$depArr[$i]['dep_title']}"; ?>"><?php echo "{$depArr[$i]['dep_name']} - {$depArr[$i]['dep_title']}"; ?></option>
                         <?php endfor ?>
                     </select>
                     <div class="invalid-feedback">

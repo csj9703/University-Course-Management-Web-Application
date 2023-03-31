@@ -29,7 +29,7 @@
           <select class="form-select <?php echo $cDepErr ? 'is-invalid' : null; ?>" name="course_department" id="cDepartSelect">
             <option selected>Choose Course Department</option>
             <?php for ($i = 0; $i < sizeof($depArr); $i++) : ?>
-              <option value="<?php echo $depArr[$i]['dep_name'] . "," . $depArr[$i]['dep_title']; ?>"><?php echo $depArr[$i]['dep_name'] . " - " . $depArr[$i]['dep_title']; ?></option>
+              <option value="<?php echo "{$depArr[$i]['dep_name']},{$depArr[$i]['dep_title']}"; ?>"><?php echo "{$depArr[$i]['dep_name']} - {$depArr[$i]['dep_title']}"; ?></option>
             <?php endfor ?>
           </select>
           <div class="invalid-feedback">
@@ -39,17 +39,19 @@
         <!-- Course Number Input -->
         <div class="input-group mt-3 mb-3">
           <span class="input-group-text">Course Number: </span>
-          <select class="form-select " id="cNumSelect">
-            <option selected value="200">200-299</option>
-            <option value="300">300-399</option>
-            <option value="400">400-499</option>
-            <option value="500">500-699</option>
+          <select class="form-select " id="cNumSelect" name="cNumRange">
+            <option selected>Choose Course Number Range</option>
+            <option value="200,299">200 - 299</option>
+            <option value="300,399">300 - 399</option>
+            <option value="400,499">400 - 499</option>
+            <option value="500,599">500 - 599</option>
+            <option value="600,699">600 - 699</option>
           </select>
         </div>
         <!-- Course Name Input -->
         <div class="input-group mt-3 mb-3">
           <span class="input-group-text">Course Name: </span>
-          <input type="text" class="form-control" placeholder="Enter a course name">
+          <input type="text" class="form-control" name="course_name" placeholder="Enter a course name">
         </div>
         <!-- Anti-Req Accordion Collapse -->
         <div class="input-group mt-3 mb-3">
@@ -58,7 +60,7 @@
         <div class="card card-body collapse" aria-expanded="false" id="antiReqCollapse">
           <div class="input-group mt-3 mb-3">
             <span class="input-group-text">Anti-requitsite Course(s): </span>
-            <input type="text" class="form-control" name="antiReq" placeholder="Enter Anti-requisite courses separated by comma ',' (E.g. CPSC 203, CPSC 205)">
+            <input type="text" class="form-control" name="antiReq" placeholder="Enter antirequisites...">
           </div>
         </div>
         <!-- Pre-Req Accordion Collapse -->
@@ -68,7 +70,7 @@
         <div class="card card-body collapse" aria-expanded="false" id="preReqCollapse">
           <div class="input-group mt-3 mb-3">
             <span class="input-group-text">Pre-requitsite Course(s): </span>
-            <input type="text" class="form-control" name="preReq" placeholder="Enter Pre-requisite courses separated by comma ',' (E.g. CPSC 203, CPSC 205)">
+            <input type="text" class="form-control" name="preReq" placeholder="Enter prerequisites...">
           </div>
         </div>
         <div class="input-group mt-3 mb-3">

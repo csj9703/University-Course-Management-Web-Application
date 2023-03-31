@@ -1,53 +1,91 @@
 <?php
-$cDupErr = 0;
-$cSemErr = $cDepErr = $cNumErr = $cNameErr = $cCredErr = $cDesErr = '';
-$cSem = $cDep = $cNum = $cName = $cCred = $cDes = '';
-$preReqErr = '';
-$antiReqErr = '';
+$cSem = $cDep = $cNumRange = $cName = '';
 $preReq = $antiReq = '';
+$cond_arr = array();
+$base_query =
+    "SELECT c.c_num, dep_title, semester, course_name, descript, dep_name, prerequisites, antirequisites
+    FROM course AS c
+    INNER JOIN pre_req AS p ON p.c_num = c.c_num AND p.cdep_title=c.dep_title AND p.c_sem=semester
+    INNER JOIN anti_req AS a ON a.c_num = c.c_num AND a.cdep_title=c.dep_title AND a.c_sem=semester";
 
 if (isset($_POST['search'])) {
-    // Validate course semester selection
-    if ($_POST['course_semester'] == "Choose Semester") {
-        $cSemErr = 'Please select a course semester!';
-    } else {
+    // If a semester is chosen
+    if ($_POST['course_semester'] != "Choose Semester") {
         $cSem = $_POST['course_semester'];
+        $cond_arr['semester'] = "'$cSem'";
     }
-
-    // Validate course department selection
-    if ($_POST['course_department'] == "Choose Course Department") {
-        $cDepErr = 'Please select a course department!';
-    } else {
+    // If a department title is chosen
+    if ($_POST['course_department'] != "Choose Course Department") {
         $cDep = explode(",", $_POST['course_department']);
+        $cond_arr['dep_title'] = "'$cDep[1]'";
     }
-
-    // Validate course number
-    if (empty($_POST['course_number'])) {
-        $cNumErr = 'Course number is required!';
-    } elseif (!(ctype_digit($_POST['course_number']) && strlen($_POST['course_number']) === 3)) {
-        $cNumErr = 'Invalid course number!';
-    } else {
-        $cNum = $_POST['course_number'];
+    // If a course number range is chosen
+    if ($_POST['cNumRange'] != "Choose Course Number Range") {
+        $cNumRange = explode(",", $_POST['cNumRange']);
+        $cNumStart = $cNumRange[0];
+        $cNumEnd = $cNumRange[1];
+        $cond_arr['c_num'] = "(c.c_num BETWEEN $cNumStart AND $cNumEnd)";
     }
-
-    // Validate course name
-    if (empty($_POST['course_name'])) {
-        $cNameErr = 'Course name is required!';
-    } else {
+    // If course name was entered
+    if (!empty($_POST['course_name'])) {
         $cName = $_POST['course_name'];
+        $cond_arr['course_name'] = "LIKE '%$cName%'";
     }
+    // If a prerequisite was entered
+    if (!empty($_POST['antiReq'])) {
+        $antiReq = $_POST['antiReq'];
+        $cond_arr['antirequisites'] = "LIKE '%$cName%'";
+    }
+    // If an antirequisite was entered
+    if (!empty($_POST['preReq'])) {
+        $preReq = $_POST['preReq'];
+        $cond_arr['prerequisites'] = "LIKE '%$cName%'";
+    }
+    $query = build_query($cond_arr, $base_query);
+    $_SESSION['search_results'] = query_search($conn, $query);
+    header("Location: searchResultPage.php");
+}
 
-    // Validate course credit
-    if (empty($_POST['course_credits'])) {
-        $cCredErr = 'Course credits amount is required!';
-    } else {
-        $cCred = $_POST['course_credits'];
-    }
+// Query the semesters for selection
+function query_semesters(mysqli $conn)
+{
+    $query = "SELECT distinct semester FROM course;";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $row;
+}
 
-    // Validate course description
-    if (empty($_POST['course_description'])) {
-        $cDesErr = 'Course description is required!';
-    } else {
-        $cDes = $_POST['course_description'];
+// Query the departments for selection
+function query_departments(mysqli $conn)
+{
+    $query = "SELECT * FROM department;";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $row;
+}
+
+// Build the SQL query from form inputs
+function build_query(array $cond_arr, string $base_query)
+{
+    if (sizeof($cond_arr) > 0) {
+        $base_query .= " WHERE ";
+        foreach ($cond_arr as $key => $value) {
+            if ($key == 'c_num') {
+                $base_query .= "{$value} AND ";
+            } else {
+                $base_query .= "{$key}={$value} AND ";
+            }
+        }
     }
+    $base_query = rtrim($base_query, "AND ");
+    $base_query .= " ORDER BY semester DESC";
+    return $base_query;
+}
+
+// Query the course search
+function query_search(mysqli $conn, string $query)
+{
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $row;
 }
