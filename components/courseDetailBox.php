@@ -16,24 +16,24 @@
                 </p>
             </div>
             <!-- Course Credits -->
-            <div class="row card-body">
+            <div class="row card-body mb-3 vw-100">
                 <span class="input-group-text"><b>Credits:</b></span>
-                <p class="card-text bg-light" style="padding-left: 20px; padding-top: 6px;">
+                <p class="card-body-text bg-light" style="width:100%; padding-left: 20px; padding-top: 6px;">
                     <?php echo $cCr . " units" ?>
                 </p>
             </div>
             <!-- Prerequisites Info -->
-            <div class="row card-body">
+            <div class="row card-body mb-3">
                 <span class="input-group-text"><b>Prerequisite(s):</b></span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
-                    <?php echo $cPre; ?>
+                    <?php echo ($cPre == NULL) ? "This course has no prerequisite." : $cPre; ?>
                 </p>
             </div>
             <!-- Antirequisites Info -->
             <div class="row card-body mb-3">
                 <span class="input-group-text"><b>Antirequisite(s):</b></span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
-                    <?php echo $cAnti; ?>
+                    <?php echo ($cAnti == NULL) ? "This course has no antirequisite." : $cAnti; ?>
                 </p>
             </div>
 
@@ -42,28 +42,18 @@
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sectionCollapse" aria-expanded="false" aria-controls="sectionCollapse"><b>Sections</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="sectionCollapse">
-                <!-- Section -->
-                <td></td>
-                <td class="details-row-cell" colspan="3">
-                    <table id="uofc-table-3" class="uofc-table">
-                        <tbody>
-                            <tr class="">
-                                <td style="width:1em;padding:1px 0 1px 9px"></td>
-                                <!-- Section id -->
-                                <td style="width:5em;padding-left:3px">L01</td>
-                                <!-- Day and Time -->
-                                <td style="width:11em; text-align: center;">WF 16:00&nbsp;-&nbsp;17:50<br></td>
-                                <!-- Location -->
-                                <td style="width:16em; text-align: center;">WEB&nbsp;BASED<br></td>
-                                <!-- Instructor -->
-                                <td style="width:16em; text-align: center;"><a href="">Professor Placeholder</a></td>
-                                <!-- Textbook -->
-                                <td style="width:100px;text-align:right;"></td>
-                                <td style="width:70px"><a href="">Textbook</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
+                <div class="row">
+                    <!-- Section id -->
+                    <div class="col-12 col-md-1 text-center">L01</div>
+                    <!-- Day and Time -->
+                    <div class="col-12 col-md-3 text-center">WF 16:00&nbsp;-&nbsp;17:50<br></div>
+                    <!-- Location -->
+                    <div class="col-12 col-md-3 text-center">WEB&nbsp;BASED<br></div>
+                    <!-- Instructor -->
+                    <div class="col-12 col-md-3 text-center"><a href="">Professor Placeholder</a></div>
+                    <!-- Textbook -->
+                    <div class="col-12 col-md-2 text-center"><a href="">Textbook</a></div>
+                </div>
             </div>
 
             <!-- Course evaluation -->
