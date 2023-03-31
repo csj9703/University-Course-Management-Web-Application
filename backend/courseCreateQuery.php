@@ -63,17 +63,16 @@ if (isset($_POST['submit'])) {
         $cDupErr = create_course($conn, $cNum, $cDep, $cName, $cCred, $cDes, $cSem);
         $preReq = $_POST['preReq'];
         $antiReq = $_POST['antiReq'];
-        // If only prerequisites were entered
-        if (!empty($preReq) && empty($antiReq) && $cDupErr == 0) {
+        // Add requisites
+        if ($cDupErr == 0) {
             add_Req('pre_req', $conn, $cNum, $cDep, $cSem, $preReq);
-            // If only antirequisites were entered
-        } elseif (empty($preReq) && !empty($antiReq) && $cDupErr == 0) {
-            add_Req('anti_req', $conn, $cNum, $cDep, $cSem, $antiReq);
-            // If both prerequisites and antirequisites were entered
-        } elseif (!empty($preReq) && !empty($antiReq) && $cDupErr == 0) {
-            add_Req('pre_req', $conn, $cNum, $cDep, $cSem, $antiReq);
             add_Req('anti_req', $conn, $cNum, $cDep, $cSem, $antiReq);
         }
+        $link = "courseDetailPage.php?cDep_title=" . urlencode($cDep[1]) .
+            "&cNum=" . urlencode($cNum) .
+            "&cName=" . urlencode($cName) .
+            "&cSem=" . urlencode($cSem);
+        header("Location: $link");
     }
 }
 
