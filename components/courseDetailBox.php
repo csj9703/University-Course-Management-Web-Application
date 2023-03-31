@@ -51,7 +51,7 @@
                     <!-- Location -->
                     <div class="col-12 col-md-3 text-center">WEB&nbsp;BASED<br></div>
                     <!-- Instructor -->
-                    <div class="col-12 col-md-3 text-center"><a href="">Professor Placeholder</a></div>
+                    <div class="col-12 col-md-3 text-center"><a href="professorDetail.php">Professor Placeholder</a></div>
                     <!-- Textbook -->
                     <div class="col-12 col-md-2 text-center"><a href="">Textbook</a></div>
                 </div>
