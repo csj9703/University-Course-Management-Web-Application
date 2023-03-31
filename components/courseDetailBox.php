@@ -15,6 +15,7 @@
                     <?php echo $cDes ?>
                 </p>
             </div>
+
             <!-- Course Credits -->
             <div class="row card-body mb-3 vw-100">
                 <span class="input-group-text"><b>Credits:</b></span>
