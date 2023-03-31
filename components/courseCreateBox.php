@@ -87,7 +87,7 @@
                 <div class="card card-body collapse" aria-expanded="false" id="antiReqCollapse">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text">Anti-requitsite Course(s): </span>
-                        <input type="text" class="form-control" name="antiReq" placeholder="Enter Anti-requisite courses separated by comma ',' (E.g. CPSC 203, CPSC 205)">
+                        <input type="text" class="form-control" name="antiReq" placeholder="Enter antirequisites...">
                     </div>
                 </div>
 
@@ -104,7 +104,7 @@
                 <div class="card card-body collapse" aria-expanded="false" id="preReqCollapse">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text">Pre-requitsite Course(s): </span>
-                        <input type="text" class="form-control" name="preReq" placeholder="Enter Pre-requisite courses separated by comma ',' (E.g. CPSC 203, CPSC 205)">
+                        <input type="text" class="form-control" name="preReq" placeholder="Enter prerequisites...">
                     </div>
                 </div>
                 <div class="input-group mt-3 mb-3">

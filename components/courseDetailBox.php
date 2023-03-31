@@ -1,11 +1,10 @@
-<!-- TODO: Link Course List Backened -->
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
     <div class="card-header"><b>Course Details</b></div>
     <div class="card-body">
         <div class="input-group rounded">
             <!-- Course Name -->
             <div class="input-group mt-3 mb-3">
-                <h5 class="card-title"><b>CPSC 471 - Data Base Management Systems - Winter 2023</b></h5>
+                <h5 class="card-title" style="padding-left: 15px;"><b><?php echo $cDep_title . " " . $cNum . " - " . $cName . " - " . $cSem ?></b></h5>
             </div>
             <!-- Course Description -->
             <div class="card-body">
@@ -73,7 +72,7 @@
             <div class="card card-body collapse" aria-expanded="false" id="courseEvalCollapse">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <div class="input-group mt-3 mb-3">
+                        <div class="input-group mb-3">
                             <span class="input-group-text bg-light">Course Difficulty: </span>
                             <label class="input-group-text bg-light">TEST</label>
                         </div>
@@ -81,11 +80,11 @@
                             <span class="input-group-text bg-light">Course Workload: </span>
                             <label class="input-group-text bg-light">TEST</label>
                         </div>
-                        <div class="input-group mt-3 mb-3">
+                        <div class="input-group mt-3 mb-6">
                             <span class="input-group-text bg-light">Course Rating: </span>
                             <label class="input-group-text bg-light">TEST</label>
                         </div>
-                        <div class="input-group mt-4 mb-3">
+                        <div class="input-group mt-4 mb-3" style="padding-top: 20px;">
                             <h5 class="card-title">Course Review: </h5>
                             <hr>
                             <p class="card-text bg-light">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>

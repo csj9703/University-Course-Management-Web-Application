@@ -1,7 +1,9 @@
 <?php
 session_start();
+include "config/database.php";
+include "backend/courseDetailQuery.php";
 if (!isset($_SESSION['logged_in'])) {
-  header("Location: index.php");
+    header("Location: index.php");
 }
 ?>
 
@@ -20,7 +22,7 @@ if (!isset($_SESSION['logged_in'])) {
 <body class="container-fluid gradient-custom">
     <div class="container-fluid gradient-custom">
         <div>
-            <?php 
+            <?php
             //add user info box
             include 'components/courseDetailBox.php';
             ?>
