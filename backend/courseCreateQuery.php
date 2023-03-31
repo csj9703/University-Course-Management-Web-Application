@@ -65,36 +65,14 @@ if (isset($_POST['submit'])) {
         $antiReq = $_POST['antiReq'];
         // If only prerequisites were entered
         if (!empty($preReq) && empty($antiReq) && $cDupErr == 0) {
-            $preReqErr = validate_requitsite($conn, $preReq);
-            // If all Pre-req exists then add them to the database
-            if (empty($preReqErr)) {
-                add_Req('pre_req', $conn, $preReq, $cNum, $cDep);
-            } else {
-                // Remove the course added earlier if we have an invalid requisite
-                remove_course($conn, $cNum, $cDep, $cSem);
-            }
+            add_Req('pre_req', $conn, $cNum, $cDep, $cSem, $preReq);
             // If only antirequisites were entered
         } elseif (empty($preReq) && !empty($antiReq) && $cDupErr == 0) {
-            $antiReqErr = validate_requitsite($conn, $antiReq);
-            // If all Pre-req exists then add them to the database
-            if (empty($antiReqErr)) {
-                add_Req('anti_req', $conn, $antiReq, $cNum, $cDep);
-            } else {
-                // Remove the course added earlier if we have an invalid requisite
-                remove_course($conn, $cNum, $cDep, $cSem);
-            }
+            add_Req('anti_req', $conn, $cNum, $cDep, $cSem, $antiReq);
             // If both prerequisites and antirequisites were entered
         } elseif (!empty($preReq) && !empty($antiReq) && $cDupErr == 0) {
-            $preReqErr = validate_requitsite($conn, $preReq);
-            $antiReqErr = validate_requitsite($conn, $antiReq);
-            // If all Pre-req exists then add them to the database
-            if (empty($antiReqErr) && empty($preReqErr)) {
-                add_Req('pre_req', $conn, $preReq, $cNum, $cDep);
-                add_Req('anti_req', $conn, $antiReq, $cNum, $cDep);
-            } else {
-                // Remove the course added earlier if we have an invalid requisite
-                remove_course($conn, $cNum, $cDep, $cSem);
-            }
+            add_Req('pre_req', $conn, $cNum, $cDep, $cSem, $antiReq);
+            add_Req('anti_req', $conn, $cNum, $cDep, $cSem, $antiReq);
         }
     }
 }
@@ -145,51 +123,16 @@ function create_course(
     }
 }
 
-// Removes course from the database
-function remove_course(
-    mysqli $conn,
-    string $cNum,
-    array $cDep,
-    string $cSem
-) {
-    $query = "DELETE FROM course WHERE c_num='$cNum' AND dep_title='$cDep[1]' AND semester='$cSem'";
-    $conn->query($query);
-}
-
-// Validates the requisites
-function validate_requitsite(mysqli $conn, string $requitsite,)
-{
-    // Check each entered requitsites to see if they exist in the course list
-    $requitsiteArr = array_map('trim', explode(",", $requitsite));
-    for ($i = 0; $i < sizeof($requitsiteArr); $i++) {
-        $reqInfo = explode(" ", $requitsiteArr[$i]);
-        $req_Num = $reqInfo[1];
-        $req_DepTitle = $reqInfo[0];
-        $query = "SELECT * FROM course WHERE c_num='$req_Num' AND dep_title='$req_DepTitle'";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        // If the requisite course they are trying to add doesn't exist then return it.
-        if (sizeof($row) == 0) {
-            return $req_DepTitle . ' ' . $req_Num;
-        }
-    }
-}
-
 // Inserts Requisites to the database
 function add_Req(
     string $reqType,
     mysqli $conn,
-    string $req,
     string $cNum,
-    array $cDep
+    array $cDep,
+    string $cSem,
+    string $req
 ) {
-    $reqArr = array_map('trim', explode(",", $req));
-    for ($i = 0; $i < sizeof($reqArr); $i++) {
-        $reqInfo = explode(" ", $reqArr[$i]);
-        $req_Num = $reqInfo[1];
-        $req_DepTitle = $reqInfo[0];
-        $query = "INSERT INTO $reqType
-                    VALUES('$cNum', '$cDep[1]', '$req_Num', '$req_DepTitle');";
-        $conn->query($query);
-    }
+    $query = "INSERT INTO $reqType
+                    VALUES('$cNum', '$cDep[1]', '$cSem', '$req');";
+    $conn->query($query);
 }
