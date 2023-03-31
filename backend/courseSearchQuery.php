@@ -34,12 +34,12 @@ if (isset($_POST['search'])) {
     // If a prerequisite was entered
     if (!empty($_POST['antiReq'])) {
         $antiReq = $_POST['antiReq'];
-        $cond_arr['antirequisites'] = "LIKE '%$cName%'";
+        $cond_arr['antirequisites'] = "LIKE '%$antiReq%'";
     }
     // If an antirequisite was entered
     if (!empty($_POST['preReq'])) {
         $preReq = $_POST['preReq'];
-        $cond_arr['prerequisites'] = "LIKE '%$cName%'";
+        $cond_arr['prerequisites'] = "LIKE '%$preReq%'";
     }
     $query = build_query($cond_arr, $base_query);
     $_SESSION['search_results'] = query_search($conn, $query);
@@ -72,6 +72,8 @@ function build_query(array $cond_arr, string $base_query)
         foreach ($cond_arr as $key => $value) {
             if ($key == 'c_num') {
                 $base_query .= "{$value} AND ";
+            } elseif ($key == 'course_name' || $key == 'antirequisites' || $key == 'prerequisites') {
+                $base_query .= "{$key} {$value} AND ";
             } else {
                 $base_query .= "{$key}={$value} AND ";
             }
