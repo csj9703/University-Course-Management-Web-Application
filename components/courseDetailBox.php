@@ -26,14 +26,14 @@
             <div class="row card-body mb-3">
                 <span class="input-group-text"><b>Prerequisite(s):</b></span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
-                    <?php echo $cPre; ?>
+                    <?php echo ($cPre == NULL) ? "This course has no prerequisite." : $cPre; ?>
                 </p>
             </div>
             <!-- Antirequisites Info -->
             <div class="row card-body mb-3">
                 <span class="input-group-text"><b>Antirequisite(s):</b></span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
-                    <?php echo $cAnti; ?>
+                    <?php echo ($cAnti == NULL) ? "This course has no antirequisite." : $cAnti; ?>
                 </p>
             </div>
 
