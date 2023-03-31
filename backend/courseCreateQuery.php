@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
         $cDupErr = create_course($conn, $cNum, $cDep, $cName, $cCred, $cDes, $cSem);
         $preReq = $_POST['preReq'];
         $antiReq = $_POST['antiReq'];
-        // If only prerequisites were entered
+        // Add requisites
         if ($cDupErr == 0) {
             add_Req('pre_req', $conn, $cNum, $cDep, $cSem, $preReq);
             add_Req('anti_req', $conn, $cNum, $cDep, $cSem, $antiReq);
