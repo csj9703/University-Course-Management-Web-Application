@@ -11,26 +11,28 @@
             <div class="card-body">
                 <span class="input-group-text"><b>Professor Positions:</b>&nbsp;</span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
-                Assistant Professor (Teaching) Faculty of Science, Department of Computer Science
+                Assistant Professor (Teaching) Faculty of Science
+                <br>
+                Department of Computer Science
+                <br>
                 </p>
             </div>
 
             <!-- Course Credits -->
             <div class="card-body">
                 <span class="input-group-text"><b>Contact Information:</b>&nbsp;</span>
-                <br>
-                <table>
-                <tr>
-                    <td>Email</td>
-                    <td>Website</td>
-                    <td>Office Location</td>
-                </tr>
-                <tr>
-                    <td>jwhudson@ucalgary.ca</td>
-                    <td>https://pages.cpsc.ucalgary.ca/~jwhudson/</td>
-                    <td>ICT712</td>
-                </tr>
-                </table>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text bg-light">Email: </span>
+                    <label class="input-group-text bg-light">jwhudson@ucalgary.ca</label>
+                </div>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text bg-light">Web presence: </span>
+                    <label class="input-group-text bg-light">https://pages.cpsc.ucalgary.ca/~jwhudson/</label>
+                </div>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text bg-light">Office Location: </span>
+                    <label class="input-group-text bg-light">ICT712</label>
+                </div>
                 <br>
             </div>
             <!-- Prerequisites Info -->
