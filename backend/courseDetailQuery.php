@@ -62,3 +62,13 @@ function query_section_textbook(mysqli $conn, string $cNum, string $cDep_title, 
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row[0];
 }
+
+function query_course_evals(mysqli $conn, string $cNum, string $cDep_title, string $cSem)
+{
+    $query = "SELECT *
+        FROM course_eval
+        WHERE c_num='$cNum' AND cdep_title='$cDep_title' AND c_sem='$cSem';";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $row;
+}
