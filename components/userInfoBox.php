@@ -49,7 +49,7 @@
                                 "&cName=" . urlencode($cName) .
                                 "&cSem=" . urlencode($cSem);
                             ?>
-                            <a href=<?php echo $link ?> class="list-group-item list-group-item-action"><?php echo $cDep_title . " " . $cNum . " - " . $cName ?></a>
+                            <a href=<?php echo $link ?> class="list-group-item list-group-item-action"><?php echo "{$cDep_title} {$cNum} - {$cName}"; ?></a>
 
                         <?php endfor; ?>
                     </ul>

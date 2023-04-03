@@ -43,18 +43,47 @@
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sectionCollapse" aria-expanded="false" aria-controls="sectionCollapse"><b>Sections</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="sectionCollapse">
-                <div class="row">
-                    <!-- Section id -->
-                    <div class="col-12 col-md-1 text-center">L01</div>
-                    <!-- Day and Time -->
-                    <div class="col-12 col-md-3 text-center">WF 16:00&nbsp;-&nbsp;17:50<br></div>
-                    <!-- Location -->
-                    <div class="col-12 col-md-3 text-center">WEB&nbsp;BASED<br></div>
-                    <!-- Instructor -->
-                    <div class="col-12 col-md-3 text-center"><a href="professorDetail.php">Professor Placeholder</a></div>
-                    <!-- Textbook -->
-                    <div class="col-12 col-md-2 text-center"><a href="">Textbook</a></div>
-                </div>
+                <?php $sectArr = query_course_sections($conn, $cNum, $cDep_title, $cSem); ?>
+                <?php for ($i = 0; $i < sizeof($sectArr); $i++) : ?>
+                    <div class="row">
+                        <?php $sect_id = $sectArr[$i]['sect_id']; ?>
+                        <!-- Section id -->
+                        <div class="col-12 col-md-1 text-center"><?php echo $sect_id; ?></div>
+                        <!-- Day and Time -->
+                        <div class="col-12 col-md-2 text-center"><?php echo "{$sectArr[$i]['day']} {$sectArr[$i]['time']}"; ?><br></div>
+                        <!-- Location -->
+                        <div class="col-12 col-md-1 text-center"><?php echo "{$sectArr[$i]['location']}"; ?><br></div>
+                        <!-- Capacity -->
+                        <div class="col-12 col-md-3 text-center"><?php echo "Capacity: {$sectArr[$i]['capacity']}"; ?><br></div>
+                        <!-- Instructor -->
+                        <?php
+                        $prof_email = $sectArr[$i]['prof_email'];
+                        $profArr = query_section_prof($conn, $prof_email);
+                        ?>
+                        <div class="col-12 col-md-3 text-center">
+                            <?php
+                            $link = "professorDetail.php?prof_email=" . urlencode($prof_email);
+                            ?>
+                            <a href=<?php echo $link; ?>>
+                                <?php echo "{$profArr['fname']} {$profArr['lname']}"; ?>
+                            </a>
+                        </div>
+                        <!-- Textbook -->
+                        <?php
+                        $textbookArr = query_section_textbook($conn, $cNum, $cDep_title, $cSem, $sect_id);
+                        ?>
+                        <div class="col-12 col-md-2 text-center">
+                            <?php
+                            $isbn = $textbookArr['isbn'];
+                            $link = "textbookDetailPage.php?isbn=" . urlencode($isbn);
+                            ?>
+                            <a href=<?php echo $link; ?>>
+                                Textbook
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                <?php endfor; ?>
             </div>
 
             <!-- Course evaluation -->

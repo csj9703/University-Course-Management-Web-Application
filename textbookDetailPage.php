@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "config/database.php";
-include "backend/professorDetailQuery.php";
+include "backend/textbookDetailQuery.php";
 if (!isset($_SESSION['logged_in'])) {
     header("Location: index.php");
 }
@@ -15,7 +15,7 @@ if (!isset($_SESSION['logged_in'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'inc/bootstrap.php' ?>
-    <title>Professor Detail</title>
+    <title>Textbook Detail</title>
     <?php include 'inc/header.php' ?>
 </head>
 
@@ -23,8 +23,7 @@ if (!isset($_SESSION['logged_in'])) {
     <div class="container-fluid gradient-custom">
         <div>
             <?php
-            //add user info box
-            include 'components/professorDetailBox.php';
+            include 'components/textbookDetailBox.php';
             ?>
         </div>
     </div>
