@@ -13,7 +13,7 @@ if (!isset($_SESSION['logged_in'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'inc/bootstrap.php' ?>
-    <title>Course Detail</title>
+    <title>Professor Detail</title>
     <?php include 'inc/header.php' ?>
 </head>
 
