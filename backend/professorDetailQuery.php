@@ -1,6 +1,7 @@
 <?php
 $prof_email = $_GET['prof_email'];
 
+// Query professor info
 function query_prof_info(mysqli $conn, string $prof_email)
 {
     $query = "SELECT * FROM professor WHERE email='$prof_email';";
@@ -9,6 +10,7 @@ function query_prof_info(mysqli $conn, string $prof_email)
     return $row[0];
 }
 
+// Query courses taught by professor
 function query_prof_courses(mysqli $conn, string $prof_email)
 {
     $query = "SELECT c.c_num, dep_title, course_name, semester 
