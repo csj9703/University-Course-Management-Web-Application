@@ -3,37 +3,39 @@
     <div class="card-header"><b>Professor Details</b></div>
     <div class="card-body">
         <div class="input-group rounded">
-            <!-- Course Name -->
+            <!-- Professor Name -->
             <div class="input-group mt-3 mb-3">
                 <h5 class="card-title"><b>Professor Name</b></h5>
             </div>
-            <!-- Course Description -->
+            <!-- Professor Description -->
             <div class="card-body">
                 <span class="input-group-text"><b>Professor Positions:</b>&nbsp;</span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
-                Assistant Professor (Teaching) Faculty of Science, Department of Computer Science
+                Assistant Professor (Teaching) Faculty of Science
+                <br>
+                Department of Computer Science
+                <br>
                 </p>
             </div>
 
-            <!-- Course Credits -->
+            <!-- Professor contact -->
             <div class="card-body">
                 <span class="input-group-text"><b>Contact Information:</b>&nbsp;</span>
-                <br>
-                <table>
-                <tr>
-                    <td>Email</td>
-                    <td>Website</td>
-                    <td>Office Location</td>
-                </tr>
-                <tr>
-                    <td>jwhudson@ucalgary.ca</td>
-                    <td>https://pages.cpsc.ucalgary.ca/~jwhudson/</td>
-                    <td>ICT712</td>
-                </tr>
-                </table>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text bg-light">Email: </span>
+                    <label class="input-group-text bg-light">jwhudson@ucalgary.ca</label>
+                </div>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text bg-light">Web presence: </span>
+                    <label class="input-group-text bg-light">https://pages.cpsc.ucalgary.ca/~jwhudson/</label>
+                </div>
+                <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text bg-light">Office Location: </span>
+                    <label class="input-group-text bg-light">ICT712</label>
+                </div>
                 <br>
             </div>
-            <!-- Prerequisites Info -->
+            <!-- Professor background -->
             <div class="card-body">
                 <span class="input-group-text"><b>Educational background:</b>&nbsp;</span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
@@ -44,7 +46,7 @@
                 PhD Computer Science, University of Calgary, 2019
                 </p>
             </div>
-            <!-- Antirequisites Info -->
+            <!-- Areas of research -->
             <div class="card-body mb-3">
                 <span class="input-group-text"><b>Areas of Research:</b>&nbsp;</span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
@@ -62,28 +64,25 @@
                 </label>
             </div>
 
-            <!-- Course Info -->
+            <!-- Courses Teaching -->
             <div class="input-group mt-3 mb-3">
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sectionCollapse" aria-expanded="false" aria-controls="sectionCollapse"><b>Courses teaching</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="sectionCollapse">
                 <!-- Courses -->
-                <td></td>
-                <td class="details-row-cell" colspan="3">
-                    <table id="uofc-table-3" class="uofc-table">
-                        <tbody>
-                            <tr class="">
-                                <td style="width:1em;padding:1px 0 1px 9px"></td>
-                                <!-- Course title -->
-                                <td style="width:5em;padding-left:3px">CPSC 433</td>
-                                <!-- Course name -->
-                                <td style="width:11em; text-align: center;">Artificial Intelligence</td>
-                                <!-- Semester -->
-                                <td style="width:16em; text-align: center;">Fall 2022</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
+                <div class="row">
+                    <!-- Course -->
+                    <div class="col-12 col-md-3 text-center"><a href="courseDetail.php">Course Placeholder</a></div>
+                    <!-- Section id -->
+                    <div class="col-12 col-md-1 text-center">L01</div>
+                    <!-- Day and Time -->
+                    <div class="col-12 col-md-3 text-center">WF 16:00&nbsp;-&nbsp;17:50<br></div>
+                    <!-- Location -->
+                    <div class="col-12 col-md-3 text-center">WEB&nbsp;BASED<br></div>
+                    <!-- Textbook -->
+                    <div class="col-12 col-md-2 text-center"><a href="">Textbook</a></div>
+                </div>
+            </div>
             </div>
 
             <!-- Professor evaluation -->
