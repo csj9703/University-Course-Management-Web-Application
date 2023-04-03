@@ -63,6 +63,7 @@ function query_section_textbook(mysqli $conn, string $cNum, string $cDep_title, 
     return $row[0];
 }
 
+// Query course evaluations
 function query_course_evals(mysqli $conn, string $cNum, string $cDep_title, string $cSem)
 {
     $query = "SELECT *

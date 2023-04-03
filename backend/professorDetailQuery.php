@@ -21,3 +21,16 @@ function query_prof_courses(mysqli $conn, string $prof_email)
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row;
 }
+
+// Query Professor evaluations
+function query_prof_evals(mysqli $conn, string $prof_email)
+{
+    $query = "SELECT c.c_num, dep_title, course_name, semester, rating, review, eval_date 
+        FROM course AS c, professor AS p, section As s, instructor_eval as ie
+        WHERE c.c_num=sect_cnum AND dep_title=sect_cdep_title AND semester=sect_c_sem
+        AND sect_cnum=s.c_num AND sect_cdep_title=s.cdep_title AND sect_c_sem=s.c_sem
+        AND prof_email=email AND prof_email='$prof_email';";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $row;
+}
