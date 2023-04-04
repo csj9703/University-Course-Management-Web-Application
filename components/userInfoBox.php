@@ -47,8 +47,7 @@
                             $link = "courseDetailPage.php?cDep_title=" . urlencode($cDep_title) .
                                 "&cNum=" . urlencode($cNum) .
                                 "&cName=" . urlencode($cName) .
-                                "&cSem=" . urlencode($cSem) .
-                                "&taken=1";
+                                "&cSem=" . urlencode($cSem);
                             ?>
                             <a href=<?php echo $link ?> class="list-group-item list-group-item-action"><?php echo "{$cDep_title} {$cNum} - {$cName}"; ?></a>
 

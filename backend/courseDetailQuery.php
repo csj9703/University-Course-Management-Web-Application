@@ -61,7 +61,7 @@ function query_section_textbook(mysqli $conn, string $cNum, string $cDep_title, 
         WHERE c_num='$cNum' AND cdep_title='$cDep_title' AND c_sem='$cSem' AND sect_id='$sect_id';";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    return $row[0];
+    return $row;
 }
 
 // Query course evaluations
@@ -84,4 +84,18 @@ function query_user_course_eval(mysqli $conn, string $cNum, string $cDep_title, 
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row;
+}
+
+function user_taken_course(mysqli $conn, string $cNum, string $cDep_title, string $cSem, string $sid)
+{
+    $query = "SELECT *
+        FROM student_course_taken
+        WHERE c_num='$cNum' AND dep_title='$cDep_title' AND c_sem='$cSem' AND sid='$sid';";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    if (sizeof($row) == 1) {
+        return True;
+    } else {
+        return False;
+    }
 }
