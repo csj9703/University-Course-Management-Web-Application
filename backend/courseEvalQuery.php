@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
     if (empty($_POST['c_review'])) {
         $cReviewErr = 'Course review is required!';
     } else {
-        $cReview = $_POST['c_review'];
+        $cReview = filter_var($_POST['c_review'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     }
     // If no errors from all the required fields and we are adding an evaluation
     if (

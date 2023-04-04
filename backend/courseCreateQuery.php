@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     if (empty($_POST['course_name'])) {
         $cNameErr = 'Course name is required!';
     } else {
-        $cName = $_POST['course_name'];
+        $cName = filter_var($_POST['course_name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     }
 
     // Validate course credit
@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
     if (empty($_POST['course_description'])) {
         $cDesErr = 'Course description is required!';
     } else {
-        $cDes = $_POST['course_description'];
+        $cDes = filter_var($_POST['course_description'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     }
     // If no errors from all the required fields
     if (
