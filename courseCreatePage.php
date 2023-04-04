@@ -1,12 +1,10 @@
 <?php
 session_start();
 include "config/database.php";
-include "backend/profEvalQuery.php";
 if (!isset($_SESSION['logged_in'])) {
     header("Location: index.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +13,7 @@ if (!isset($_SESSION['logged_in'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'inc/bootstrap.php' ?>
-    <title>Professor Evaluation</title>
+    <title>Course Creation Page</title>
     <?php include 'inc/header.php' ?>
 </head>
 
@@ -23,14 +21,10 @@ if (!isset($_SESSION['logged_in'])) {
     <div class="container-fluid gradient-custom">
         <div>
             <?php
-            if ($prof_eval_type == 'add') {
-                include 'components/addProfEvalBox.php';
-            } else {
-                include 'components/editProEvalBox.php';
-            }
+            include "backend/courseCreateQuery.php";
+            include 'components/courseCreateBox.php';
             ?>
         </div>
-    </div>
 </body>
 <?php include 'inc/footer.php' ?>
 

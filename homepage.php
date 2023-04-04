@@ -20,13 +20,9 @@ if (!isset($_SESSION['logged_in'])) {
 <body class="container-fluid gradient-custom">
   <div class="container-fluid gradient-custom">
     <div>
-      <?php if ($_SESSION['privilege'] == 0) {
-        include "backend/courseSearchQuery.php";
-        include 'components/courseSearchBox.php';
-      } else {
-        include "backend/courseCreateQuery.php";
-        include 'components/courseCreateBox.php';
-      }
+      <?php
+      include "backend/courseSearchQuery.php";
+      include 'components/courseSearchBox.php';
       ?>
     </div>
 </body>

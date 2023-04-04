@@ -17,6 +17,10 @@
           <li class="nav-item btn btn-light">
             <a class="nav-link" href="userInfoPage.php">My Information</a>
           </li>
+        <?php else : ?>
+          <li class="nav-item btn btn-light">
+            <a class="nav-link" href="courseCreatePage.php">Course Creation</a>
+          </li>
         <?php endif ?>
         <li class="nav-item btn btn-light">
           <a class="nav-link" href="backend/logout.php">Logout</a>
