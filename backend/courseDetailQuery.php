@@ -9,6 +9,7 @@ $cCr = $cDesCr['cr'];
 $cPrAr = query_course_requitsites($conn, $cNum, $cDep_title, $cSem);
 $cPre = $cPrAr['pr'];
 $cAnti = $cPrAr['ar'];
+$sid = $_SESSION['uid'];
 
 // Query course description and credit
 function query_course_des_cred(mysqli $conn, string $cNum, string $cDep_title, string $cSem)
@@ -64,11 +65,22 @@ function query_section_textbook(mysqli $conn, string $cNum, string $cDep_title, 
 }
 
 // Query course evaluations
-function query_course_evals(mysqli $conn, string $cNum, string $cDep_title, string $cSem)
+function query_course_evals(mysqli $conn, string $cNum, string $cDep_title, string $cSem, string $sid)
 {
     $query = "SELECT *
         FROM course_eval
-        WHERE c_num='$cNum' AND cdep_title='$cDep_title' AND c_sem='$cSem';";
+        WHERE c_num='$cNum' AND cdep_title='$cDep_title' AND c_sem='$cSem' AND NOT sid='$sid';";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $row;
+}
+
+// Query user's own course evaluation
+function query_user_course_eval(mysqli $conn, string $cNum, string $cDep_title, string $cSem, string $sid)
+{
+    $query = "SELECT *
+        FROM course_eval
+        WHERE c_num='$cNum' AND cdep_title='$cDep_title' AND c_sem='$cSem' AND sid='$sid';";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row;
