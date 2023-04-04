@@ -86,12 +86,78 @@
                 <?php endfor; ?>
             </div>
 
-            <!-- Course evaluation -->
+            <!--User's Course evaluation -->
             <div class="row input-group mt-3 mb-3">
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#courseEvalCollapse" aria-expanded="false" aria-controls="courseEvalCollapse"><b>Course Evaluation</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="courseEvalCollapse">
-                <?php $evals = query_course_evals($conn, $cNum, $cDep_title, $cSem); ?>
+                <?php $myEvals = query_user_course_eval($conn, $cNum, $cDep_title, $cSem, $sid); ?>
+                <?php if (sizeof($myEvals) == 1) : ?>
+                    <div class="row card-title h5 mb-3">
+                        <div class="col" style="padding-left: 15px;"><b>My Course Review:</b></div>
+                        <div class="col" style="text-align:right;">
+                            <?php
+                            $_SESSION['eval_type'] = 'edit';
+                            $_SESSION['current_cName'] = $cName;
+                            $_SESSION['current_cNum'] = $cNum;
+                            $_SESSION['current_cDep'] = $cDep_title;
+                            $_SESSION['current_cSem'] = $cSem;
+                            $link = "courseEvalPage.php";
+                            ?>
+                            <a href=<?php echo $link; ?>>
+                                Edit
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-light">Course Difficulty: </span>
+                                <label class="input-group-text bg-light"><?php echo "{$myEvals[0]['diffi_rating']}/10"; ?></label>
+                            </div>
+                            <div class="input-group mt-3 mb-3">
+                                <span class="input-group-text bg-light">Course Workload: </span>
+                                <label class="input-group-text bg-light"><?php echo "{$myEvals[0]['workload']}"; ?></label>
+                            </div>
+                            <div class="input-group mt-3 mb-6">
+                                <span class="input-group-text bg-light">Course Rating: </span>
+                                <label class="input-group-text bg-light"><?php echo "{$myEvals[0]['rating']}/10"; ?></label>
+                            </div>
+                            <div class="input-group mt-4 mb-3" style="padding-top: 20px;">
+                                <div class="card-title h5">Course Review:
+                                    <div class="card-body bg-light h6 mt-3">
+                                        "<?php echo "{$myEvals[0]['review']}"; ?>"
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="card-title" style="text-align: right">Review Date: <?php echo "{$myEvals[0]['eval_date']}"; ?></h5>
+                        </li>
+                    </ul>
+                <?php else : ?>
+                    <div class="row card-title h5 mb-3">
+                        <div class="col" style="padding-left: 15px;"><b>My Course Review: </b></div>
+                        <h5 class="mt-3" style="text-align: center">You haven't posted an evaluation for this course! </h5>
+                        <?php
+                        $_SESSION['eval_type'] = 'add';
+                        $_SESSION['current_cName'] = $cName;
+                        $_SESSION['current_cNum'] = $cNum;
+                        $_SESSION['current_cDep'] = $cDep_title;
+                        $_SESSION['current_cSem'] = $cSem;
+                        $link = "courseEvalPage.php";
+                        ?>
+                        <a class="mt-2" href=<?php echo $link; ?> style="text-align: center">
+                            Click here to submit your evaluation.
+                        </a>
+                    </div>
+                <?php endif; ?>
+                <hr>
+                <!-- Other Student's course evaluations -->
+                <div class="row card-title h5 mb-3">
+                    <div class="col" style="padding-left: 15px;">
+                        <b>Other Course Review(s):</b>
+                    </div>
+                </div>
+                <?php $evals = query_course_evals($conn, $cNum, $cDep_title, $cSem, $sid); ?>
                 <ul class="list-group list-group-flush">
                     <?php for ($i = 0; $i < sizeof($evals); $i++) : ?>
                         <li class="list-group-item">
