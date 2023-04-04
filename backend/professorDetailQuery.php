@@ -49,3 +49,19 @@ function query_user_prof_eval(mysqli $conn, string $prof_email)
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row;
 }
+
+function user_taken_course_with_prof(mysqli $conn, string $prof_email)
+{
+    $sid = $_SESSION['uid'];
+    $query = "SELECT *
+        FROM student_course_taken AS c, professor AS p, section As s
+        WHERE c.c_num=s.c_num AND dep_title=cdep_title AND c.c_sem=s.c_sem
+        AND prof_email=email AND prof_email='$prof_email' AND c.sid='$sid';";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    if (sizeof($row) > 0) {
+        return True;
+    } else {
+        return False;
+    }
+}

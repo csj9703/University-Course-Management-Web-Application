@@ -66,13 +66,48 @@
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#profEvalCollapse" aria-expanded="false" aria-controls="profEvalCollapse"><b>Professor Evaluation</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="profEvalCollapse">
-                <?php $myEvals = query_user_prof_eval($conn, $prof_email); ?>
-                <?php if (sizeof($myEvals) == 1) : ?>
-                    <div class="row card-title h5 mb-3">
-                        <div class="col" style="padding-left: 15px;"><b>My Professor Review:</b></div>
-                        <div class="col" style="text-align:right;">
+                <?php if (user_taken_course_with_prof($conn, $prof_email)) : ?>
+                    <?php $myEvals = query_user_prof_eval($conn, $prof_email); ?>
+                    <?php if (sizeof($myEvals) == 1) : ?>
+                        <div class="row card-title h5 mb-3">
+                            <div class="col" style="padding-left: 15px;"><b>My Professor Review:</b></div>
+                            <div class="col" style="text-align:right;">
+                                <?php
+                                $_SESSION['prof_eval_type'] = 'edit';
+                                $_SESSION['current_pName'] = "{$profArr['fname']} {$profArr['lname']}";
+                                $_SESSION['current_pEmail'] = $prof_email;
+                                $_SESSION['current_cNum'] = $cNum;
+                                $_SESSION['current_cDep'] = $cDep;
+                                $_SESSION['current_cSem'] = $cSem;
+                                $link = "profEvalPage.php";
+                                ?>
+                                <a href=<?php echo $link; ?>>
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="input-group mt-3 mb-6">
+                                    <span class="input-group-text bg-light">Professor Rating: </span>
+                                    <label class="input-group-text bg-light"><?php echo "{$myEvals[0]['rating']}/10"; ?></label>
+                                </div>
+                                <div class="input-group mt-4 mb-3" style="padding-top: 20px;">
+                                    <div class="card-title h5">Professor Review:
+                                        <div class="card-body bg-light h6 mt-3">
+                                            "<?php echo "{$myEvals[0]['review']}"; ?>"
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="card-title" style="text-align: right">Review Date: <?php echo "{$myEvals[0]['eval_date']}"; ?></h5>
+                            </li>
+                        </ul>
+                    <?php else : ?>
+                        <div class="row card-title h5 mb-3">
+                            <div class="col" style="padding-left: 15px;"><b>My Professor Review: </b></div>
+                            <h5 class="mt-3" style="text-align: center">You haven't posted an evaluation for this course! </h5>
                             <?php
-                            $_SESSION['prof_eval_type'] = 'edit';
+                            $_SESSION['prof_eval_type'] = 'add';
                             $_SESSION['current_pName'] = "{$profArr['fname']} {$profArr['lname']}";
                             $_SESSION['current_pEmail'] = $prof_email;
                             $_SESSION['current_cNum'] = $cNum;
@@ -80,44 +115,11 @@
                             $_SESSION['current_cSem'] = $cSem;
                             $link = "profEvalPage.php";
                             ?>
-                            <a href=<?php echo $link; ?>>
-                                Edit
+                            <a class="mt-2" href=<?php echo $link; ?> style="text-align: center">
+                                Click here to submit your evaluation.
                             </a>
                         </div>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="input-group mt-3 mb-6">
-                                <span class="input-group-text bg-light">Professor Rating: </span>
-                                <label class="input-group-text bg-light"><?php echo "{$myEvals[0]['rating']}/10"; ?></label>
-                            </div>
-                            <div class="input-group mt-4 mb-3" style="padding-top: 20px;">
-                                <div class="card-title h5">Professor Review:
-                                    <div class="card-body bg-light h6 mt-3">
-                                        "<?php echo "{$myEvals[0]['review']}"; ?>"
-                                    </div>
-                                </div>
-                            </div>
-                            <h5 class="card-title" style="text-align: right">Review Date: <?php echo "{$myEvals[0]['eval_date']}"; ?></h5>
-                        </li>
-                    </ul>
-                <?php else : ?>
-                    <div class="row card-title h5 mb-3">
-                        <div class="col" style="padding-left: 15px;"><b>My Professor Review: </b></div>
-                        <h5 class="mt-3" style="text-align: center">You haven't posted an evaluation for this course! </h5>
-                        <?php
-                        $_SESSION['prof_eval_type'] = 'add';
-                        $_SESSION['current_pName'] = "{$profArr['fname']} {$profArr['lname']}";
-                        $_SESSION['current_pEmail'] = $prof_email;
-                        $_SESSION['current_cNum'] = $cNum;
-                        $_SESSION['current_cDep'] = $cDep;
-                        $_SESSION['current_cSem'] = $cSem;
-                        $link = "profEvalPage.php";
-                        ?>
-                        <a class="mt-2" href=<?php echo $link; ?> style="text-align: center">
-                            Click here to submit your evaluation.
-                        </a>
-                    </div>
+                    <?php endif; ?>
                 <?php endif; ?>
                 <hr>
                 <!-- Other Student's Professor evaluations -->

@@ -74,12 +74,17 @@
                         ?>
                         <div class="col-12 col-md-2 text-center">
                             <?php
-                            $isbn = $textbookArr['isbn'];
-                            $link = "textbookDetailPage.php?isbn=" . urlencode($isbn);
+                            $text = "No Texbook";
+                            $text_link = '';
+                            if (sizeof($textbookArr) == 1) {
+                                $isbn = $textbookArr[0]['isbn'];
+                                $text_link = "textbookDetailPage.php?isbn=" . urlencode($isbn);
+                                $text = 'Textbook';
+                                echo "<a href=\"{$text_link}\">Textbook</a>";
+                            } else {
+                                echo "No Textbook";
+                            }
                             ?>
-                            <a href=<?php echo $link; ?>>
-                                Textbook
-                            </a>
                         </div>
                     </div>
                     <hr>
