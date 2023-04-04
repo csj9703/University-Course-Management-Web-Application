@@ -1,5 +1,7 @@
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
-    <div class="card-header"><b>Course Details</b></div>
+    <div class="card-header">
+        <b>Course Details</b>
+    </div>
     <div class="card-body">
         <div class="input-group rounded">
             <!-- Course Name -->
@@ -7,6 +9,19 @@
                 <h5 class="card-title" style="padding-left: 15px;">
                     <b><?php echo "{$cDep_title} {$cNum} - {$cName} - {$cSem}"; ?></b>
                 </h5>
+                <?php if ($_SESSION['privilege'] > 0) : ?>
+                    <div class="col" style="text-align:right;">
+                        <?php
+                        $_SESSION['current_cNum'] = $cNum;
+                        $_SESSION['current_cDep'] = $cDep_title;
+                        $_SESSION['current_cSem'] = $cSem;
+                        $link = "courseEditPage.php";
+                        ?>
+                        <a href=<?php echo $link ?>>
+                            <b>Edit</b>
+                        </a>
+                    </div>
+                <?php endif; ?>
             </div>
             <!-- Course Description -->
             <div class="row card-body">
