@@ -11,8 +11,8 @@
         <div class="input-group rounded">
             <div class="card card-body">
                 <!-- Course listing -->
-                <?php for ($i = 0; $i < sizeof($search_results); $i++) : ?>
-                    <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush">
+                    <?php for ($i = 0; $i < sizeof($search_results); $i++) : ?>
                         <?php
                         $semester = $search_results[$i]['semester'];
                         $dep_title = $search_results[$i]['dep_title'];
@@ -26,8 +26,9 @@
                         <a href=<?php echo $link ?> class="list-group-item list-group-item-action">
                             <?php echo "{$semester} - {$dep_title} {$cNum} - {$cName}" ?>
                         </a>
-                    </ul>
-                <?php endfor; ?>
+                    <?php endfor; ?>
+                </ul>
+
             </div>
         </div>
         <a href="homepage.php" role="button" class="btn btn-primary mt-5">Go Back</a>

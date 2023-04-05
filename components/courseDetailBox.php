@@ -10,7 +10,7 @@
                     <b><?php echo "{$cDep_title} {$cNum} - {$cName} - {$cSem}"; ?></b>
                 </h5>
                 <?php if ($_SESSION['privilege'] > 0) : ?>
-                    <div class="col" style="text-align:right;">
+                    <div class="col" style="text-align:right; padding-right: 10px;">
                         <?php
                         $_SESSION['current_cNum'] = $cNum;
                         $_SESSION['current_cDep'] = $cDep_title;
@@ -55,7 +55,25 @@
 
             <!-- Section Info -->
             <div class="row input-group mt-3 mb-3">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sectionCollapse" aria-expanded="false" aria-controls="sectionCollapse"><b>Sections</b></button>
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#sectionCollapse" aria-expanded="false" aria-controls="sectionCollapse">
+                    <b>Sections</b>
+                    <!-- Add/ Remove Sections -->
+                    <?php if ($_SESSION['privilege'] > 0) : ?>
+                        <div class="col" style="text-align:right; padding-right: 10px;">
+                            <?php
+                            $_SESSION['current_cName'] = $cName;
+                            $_SESSION['current_cNum'] = $cNum;
+                            $_SESSION['current_cDep'] = $cDep_title;
+                            $_SESSION['current_cSem'] = $cSem;
+                            $link = "editSectionPage.php";
+                            ?>
+                            <a href=<?php echo $link ?> style="padding-right: 20px;">
+                                <b>Edit</b>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                </button>
+
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="sectionCollapse">
                 <?php $sectArr = query_course_sections($conn, $cNum, $cDep_title, $cSem); ?>
