@@ -1,4 +1,9 @@
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
+    <?php if ($_SESSION['privilege'] > 0) : ?>
+        <div class="card-header">
+            <a href="searchResultPage.php" role="button" class="btn btn-primary me-3">Go Back to search results</a>
+        </div>
+    <?php endif; ?>
     <div class="card-header">
         <b>Course Details</b>
     </div>
@@ -233,4 +238,31 @@
             </div>
         </div>
     </div>
+    <?php if ($_SESSION['privilege'] > 0) : ?>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#courseDeleteModal" class="btn btn-danger" style="margin-left: auto;margin-right: auto;padding-right: 50px;padding-left: 50px;margin-bottom: 20px;">
+            Delete Course
+        </button>
+        <!--Delete Course Modal -->
+        <div class="modal fade" id="courseDeleteModal" tabindex="-1" aria-labelledby="courseDeleteModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="courseDeleteModalLabel">Course Delete Confirmation</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo "Are you sure you want to delete this course?" ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                            <button type="submit" class="btn btn-danger" name="deleteCourse">
+                                Yes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>

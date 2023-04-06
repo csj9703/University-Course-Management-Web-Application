@@ -1,5 +1,4 @@
 <?php
-$sect_edit_type = $_SESSION['sect_edit_type'];
 $sect_cNum = $_SESSION['current_cNum'];
 $sect_cDep = $_SESSION['current_cDep'];
 $sect_cSem = $_SESSION['current_cSem'];
