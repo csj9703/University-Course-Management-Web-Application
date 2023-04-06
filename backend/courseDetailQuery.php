@@ -1,8 +1,26 @@
 <?php
-$cDep_title = $_GET['cDep_title'];
-$cNum = $_GET['cNum'];
-$cName = $_GET['cName'];
-$cSem = $_GET['cSem'];
+if (isset($_GET['cDep_title'])) {
+    $cDep_title = $_GET['cDep_title'];
+} else {
+    $cDep_title = $_SESSION['current_cDep'];
+}
+
+if (isset($_GET['cNum'])) {
+    $cNum = $_GET['cNum'];
+} else {
+    $cNum = $_SESSION['current_cNum'];
+}
+
+if (isset($_GET['cName'])) {
+    $cName = $_GET['cName'];
+}
+
+if (isset($_GET['cSem'])) {
+    $cSem = $_GET['cSem'];
+} else {
+    $cSem = $_SESSION['current_cSem'];
+}
+
 $cDesCr = query_course_des_cred($conn, $cNum, $cDep_title, $cSem);
 $cDes = $cDesCr['d'];
 $cCr = $cDesCr['cr'];
@@ -10,6 +28,11 @@ $cPrAr = query_course_requitsites($conn, $cNum, $cDep_title, $cSem);
 $cPre = $cPrAr['pr'];
 $cAnti = $cPrAr['ar'];
 $sid = $_SESSION['uid'];
+
+if (isset($_POST['deleteCourse'])) {
+    delete_course($conn, $cNum, $cDep_title, $cSem);
+    header("Location: searchResultPage.php");
+}
 
 // Query course description and credit
 function query_course_des_cred(mysqli $conn, string $cNum, string $cDep_title, string $cSem)
@@ -98,4 +121,12 @@ function user_taken_course(mysqli $conn, string $cNum, string $cDep_title, strin
     } else {
         return False;
     }
+}
+
+// Delete the course from the database
+function delete_course(mysqli $conn, string $cNum, string $cDep_title, string $cSem)
+{
+    $query = "DELETE FROM course
+        WHERE c_num='$cNum' AND dep_title='$cDep_title' AND semester='$cSem';";
+    $conn->query($query);
 }
