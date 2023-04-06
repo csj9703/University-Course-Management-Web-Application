@@ -2,7 +2,13 @@
     <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
         <div class="card-header"><b>Enter Section Information</b></div>
         <div class="card-body">
-            <h5 class="card-title">Course: <?php echo "{$_SESSION['current_cDep']} {$_SESSION['current_cNum']} - {$_SESSION['current_cName']} - {$_SESSION['current_cSem']}" ?></h5>
+            <h5 class="card-title">Course: <?php echo "{$cDep} {$cNum} - {$cName} - {$cSem}" ?></h5>
+            <!-- Duplicate Course Alert -->
+            <?php if ($sDupErr == -1) : ?>
+                <div class="alert alert-danger" role="alert">
+                    Error: Section ID already exists!
+                </div>
+            <?php endif; ?>
             <div class="input-group rounded">
                 <!-- Section ID Input -->
                 <div class="input-group mt-3 mb-3">
@@ -59,7 +65,7 @@
                 <!-- Section Instructor Input -->
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text">Instructor: </span>
-                    <input type="text" name="sect_instr" class="form-control <?php echo $sInsErr ? 'is-invalid' : null; ?>" placeholder="Enter the Section Instructor">
+                    <input type="text" name="sect_instr" class="form-control <?php echo $sInsErr ? 'is-invalid' : null; ?>" placeholder="Enter the Section Instructor, leave empty for TBD">
                     <div class="invalid-feedback">
                         <?php echo $sInsErr; ?>
                     </div>

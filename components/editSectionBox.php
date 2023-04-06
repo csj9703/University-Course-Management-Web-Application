@@ -1,5 +1,14 @@
 <?php $search_results = $_SESSION['search_results']; ?>
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
+    <div class="card-header">
+        <?php
+        $link = "courseDetailPage.php?cDep_title=" . urlencode($sect_cDep) .
+            "&cNum=" . urlencode($sect_cNum) .
+            "&cName=" . urlencode($sect_cName) .
+            "&cSem=" . urlencode($sect_cSem);
+        ?>
+        <a href=<?php echo $link; ?> role="button" class="btn btn-primary me-3">Go Back</a>
+    </div>
     <?php $sections = query_section_list($conn, $sect_cNum, $sect_cDep, $sect_cSem); ?>
     <b class="ms-3 mt-3">Sections For </b>
     <div class="card-body">
@@ -23,7 +32,7 @@
                             $prof_email = $sections[$i]['prof_email'];
                             $profArr = query_section_prof($conn, $prof_email);
                             ?>
-                            <div class="col-12 col-md-2 text-center">
+                            <div class="col-12 col-md-2 text-center" style="padding-top: 4px;">
                                 <?php
                                 $prof_text = "TBD";
                                 if ($prof_email == "TBD") {
@@ -55,11 +64,11 @@
                             </div>
                             <!-- Delete Section button -->
                             <div class="col-12 col-md-2 text-center">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#sectDeleteModal" class="btn btn-danger">
+                                <button type="button" data-bs-toggle="modal" data-bs-target=<?php echo "#{$sect_id}DeleteModal" ?> class="btn btn-danger">
                                     Delete
                                 </button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="sectDeleteModal" tabindex="-1" aria-labelledby="sectDeleteModal" aria-hidden="true">
+                                <div class="modal fade" id=<?php echo "{$sect_id}DeleteModal" ?> tabindex="-1" aria-labelledby="sectDeleteModal" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -67,12 +76,12 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Are you sure you want to delete section: <?php echo $sect_id ?>?
+                                                <?php echo "Are you sure you want to delete section:  {$sect_id}" ?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-                                                    <button type="submit" class="btn btn-danger" name="delete" value="<?php echo "{$sect_cNum},{$sect_cDep},{$sect_cSem},{$sect_id}" ?>">
+                                                    <button type="submit" class="btn btn-danger" name="delete" value="<?php echo "{$sect_id}" ?>">
                                                         Yes
                                                     </button>
                                                 </form>
@@ -81,6 +90,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <hr>
                     <?php endfor; ?>
@@ -88,7 +98,7 @@
             </div>
         </div>
     </div>
-    <a href="addSectionPage.php" type="button" class="btn btn-primary" style="margin-left: auto;margin-right: auto;padding-right: 50px;padding-left: 50px;">
+    <a href="addSectionPage.php" type="button" class="btn btn-primary" style="margin-left: auto;margin-right: auto;padding-right: 50px;padding-left: 50px;margin-bottom: 10px;">
         Add Section
     </a>
 </div>

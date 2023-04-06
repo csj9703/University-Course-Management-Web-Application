@@ -1,7 +1,11 @@
 <?php
 $sDupErr = 0;
 $sIDErr = $sDayErr = $sSTimeErr = $sETimeErr = $cLocErr = $sCapErr = $sInsErr = '';
-$sID = $sDay = $sSTime = $sETime = $cLoc = $sCap = $sIns = '';
+$sID = $sDay = $sSTime = $sETime = $cLoc = $sCap = '';
+$cName = $_SESSION['current_cName'];
+$cNum = $_SESSION['current_cNum'];
+$cDep = $_SESSION['current_cDep'];
+$cSem = $_SESSION['current_cSem'];
 
 if (isset($_POST['submit'])) {
     // Validate section days selection
@@ -48,7 +52,7 @@ if (isset($_POST['submit'])) {
 
     // Validate instructor email
     if (empty($_POST['sect_instr'])) {
-        $sInsErr = 'Section instructor is required!';
+        $sIns = "TBD";
     } else {
         $sIns = filter_var($_POST['sect_instr'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     }
@@ -60,30 +64,61 @@ if (isset($_POST['submit'])) {
         && empty($sETimeErr)
         && empty($cLocErr)
         && empty($sCapErr)
-        && empty($sInsErr)
+        && $sDupErr == 0
     ) {
-        // Add course to the database
-        // $cDupErr = create_section($conn, $cNum, $cDep, $cName, $cCred, $cDes, $cSem);
-        // Add requisites
-        if ($cDupErr == 0) {
+        if (is_dup_sect_id($conn, $cNum, $cDep, $cSem, $sID)) {
+            $sDupErr = -1;
+        } else {
+            add_section(
+                $conn,
+                $cNum,
+                $cDep,
+                $cSem,
+                $sID,
+                $sDay,
+                $sSTime,
+                $sETime,
+                $cLoc,
+                $sCap,
+                $sIns
+            );
+            // Redirect to the created course after the course creation
+            header("Location: editSectionPage.php");
         }
-        // Redirect to the created course after the course creation
-        // $link = "courseDetailPage.php?cDep_title=" . urlencode($cDep[1]) .
-        //     "&cNum=" . urlencode($cNum) .
-        //     "&cName=" . urlencode($cName) .
-        //     "&cSem=" . urlencode($cSem);
-        // header("Location: $link");
     }
 }
 
-// Insert the course info into the database.
-function create_section(
+// Insert the section info into the database.
+function add_section(
     mysqli $conn,
     string $cNum,
-    array $cDep,
-    string $cName,
-    string $cCred,
-    string $cDes,
-    string $cSem
+    string $cDep,
+    string $cSem,
+    string $sID,
+    string $sDay,
+    string $sSTime,
+    string $sETime,
+    string $cLoc,
+    string $sCap,
+    string $sIns
 ) {
+    $sTime = "{$sSTime} - {$sETime}";
+    $query = "INSERT INTO section
+        VALUES('$cNum', '$cDep', '$sID', '$cSem', '$sDay', '$sTime', '$cLoc', '$sCap', '$sIns')";
+    $conn->query($query);
+}
+
+function is_dup_sect_id(
+    mysqli $conn,
+    string $cNum,
+    string $cDep,
+    string $cSem,
+    string $sID
+) {
+    $query = "SELECT *
+        FROM section
+        WHERE c_num='$cNum' AND cdep_title='$cDep' AND c_sem='$cSem' AND sect_id='$sID';";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return sizeof($row) == 1;
 }

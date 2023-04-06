@@ -3,11 +3,13 @@ $sect_edit_type = $_SESSION['sect_edit_type'];
 $sect_cNum = $_SESSION['current_cNum'];
 $sect_cDep = $_SESSION['current_cDep'];
 $sect_cSem = $_SESSION['current_cSem'];
-
+$sect_cName = $_SESSION['current_cName'];
 if (isset($_POST['delete'])) {
-    echo $_POST['delete'];
+    $sID = $_POST['delete'];
+    delete_section($conn, $sect_cNum, $sect_cDep, $sect_cSem, $sID);
 }
 
+// Query section list
 function query_section_list(mysqli $conn, string $sect_cNum, string $sect_cDep, string $sect_cSem)
 {
     $query = "SELECT *
@@ -38,4 +40,17 @@ function query_section_textbook(mysqli $conn, string $cNum, string $cDep_title, 
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row;
+}
+
+// Delete the section from the database.
+function delete_section(
+    mysqli $conn,
+    string $cNum,
+    string $cDep,
+    string $cSem,
+    string $sID
+) {
+    $query = "DELETE FROM section
+       WHERE c_num='$cNum' AND cdep_title='$cDep' AND sect_id='$sID' AND c_sem='$cSem';";
+    $conn->query($query);
 }
