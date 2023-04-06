@@ -95,11 +95,15 @@
                         ?>
                         <div class="col-12 col-md-3 text-center">
                             <?php
-                            $link = "professorDetail.php?prof_email=" . urlencode($prof_email);
+                            $prof_text = "TBD";
+                            if ($prof_email == "TBD") {
+                                echo "TBD";
+                            } else {
+                                $prof_link = "professorDetail.php?prof_email=" . urlencode($prof_email);
+                                $prof_text = "{$profArr['fname']} {$profArr['lname']}";
+                                echo "<a href=\"{$prof_link}\">$prof_text</a>";
+                            }
                             ?>
-                            <a href=<?php echo $link; ?>>
-                                <?php echo "{$profArr['fname']} {$profArr['lname']}"; ?>
-                            </a>
                         </div>
                         <!-- Textbook -->
                         <?php
