@@ -1,7 +1,7 @@
 # CPSC471-Project
 Project for the Database Management System course.
 
-# Setup the Project
+# Setup the Project (For Development)
 
 1. [Download XAMPP for your OS](https://www.apachefriends.org/), this will install PHP and MySQL onto your system.
 2. Set your **ENVIRONMENT VARIABLE** for PHP.
@@ -18,7 +18,7 @@ Project for the Database Management System course.
         - **E-mail**: bob.admin@ucalgary.ca
         - **Password**: adminpass
        
-# Connecting To The AWS Database
+# Connecting To The AWS Database (For Development)
 1. Download [MySQL Workbench](https://www.mysql.com/products/workbench/) or your choice of MySQL Tool.
 2. Connect using the endpoint at the Hostname field: cpsc471-project-db.c3dvoz4qikix.us-west-1.rds.amazonaws.com
     - **Username:** admin
