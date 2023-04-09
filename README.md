@@ -28,7 +28,7 @@ Project for the Database Management System course.
 
 1. Unzip the project to a directory.
 2. Go to the project directory. (../CPSC471-Project/)
-3. Open the any terminal at the project directory.
+3. Open any terminal at the project directory.
 4. Run the command `php -S localhost:8000`.
 5. Go to `localhost:8000` to see the web application.
     - Student credentials:
