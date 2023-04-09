@@ -30,9 +30,10 @@ function query_num_of_course_taken_per_sem(mysqli $conn)
 // Get the course taken per semester
 function query_courses_taken_on_semester(mysqli $conn, string $semester)
 {
+    $sid = $_SESSION['uid'];
     $query = "SELECT c.dep_title, c.c_num, c.course_name AS c_name
         FROM course AS c, student_course_taken AS sc
-        WHERE sc.sid=12345678 AND c.c_num=sc.c_num AND c.dep_title=sc.dep_title AND semester='$semester';";
+        WHERE sc.sid='$sid' AND c.c_num=sc.c_num AND c.dep_title=sc.dep_title AND semester='$semester';";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row;
