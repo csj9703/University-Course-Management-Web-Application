@@ -29,16 +29,16 @@
                             <div class="col-12 col-md-2 text-center" style="padding-top: 4px;"><?php echo "Capacity: {$sections[$i]['capacity']}"; ?><br></div>
                             <!-- Instructor -->
                             <?php
-                            $prof_email = $sections[$i]['prof_email'];
-                            $profArr = query_section_prof($conn, $prof_email);
+                            $instr_email = $sections[$i]['instr_email'];
+                            $profArr = query_section_prof($conn, $instr_email);
                             ?>
                             <div class="col-12 col-md-2 text-center" style="padding-top: 4px;">
                                 <?php
                                 $prof_text = "TBD";
-                                if ($prof_email == "TBD") {
+                                if ($instr_email == "TBD") {
                                     echo "TBD";
                                 } else {
-                                    $prof_link = "professorDetail.php?prof_email=" . urlencode($prof_email);
+                                    $prof_link = "professorDetail.php?instr_email=" . urlencode($instr_email);
                                     $prof_text = "{$profArr['fname']} {$profArr['lname']}";
                                     echo "<a href=\"{$prof_link}\">$prof_text</a>";
                                 }

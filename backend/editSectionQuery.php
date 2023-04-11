@@ -20,11 +20,11 @@ function query_section_list(mysqli $conn, string $sect_cNum, string $sect_cDep, 
     return $row;
 }
 
-// Query section professors
-function query_section_prof(mysqli $conn, string $prof_email)
+// Query section instructors
+function query_section_prof(mysqli $conn, string $instr_email)
 {
-    $query = "SELECT * FROM professor 
-        WHERE email='$prof_email';";
+    $query = "SELECT * FROM instructor 
+        WHERE email='$instr_email';";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row[0];

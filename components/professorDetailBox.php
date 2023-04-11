@@ -1,18 +1,18 @@
-<?php $profArr = query_prof_info($conn, $prof_email); ?>
+<?php $profArr = query_prof_info($conn, $instr_email); ?>
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
-    <div class="card-header"><b>Professor Details</b></div>
+    <div class="card-header"><b>Instructor Details</b></div>
     <div class="card-body">
         <div class="input-group rounded">
-            <!-- Professor Name -->
+            <!-- Instructor Name -->
             <div class="input-group mt-3 mb-3">
                 <h5 class="card-title" style="padding-left: 15px;">
                     <b><?php echo "{$profArr['fname']} {$profArr['lname']}" ?>
                     </b>
                 </h5>
             </div>
-            <!-- Professor Description -->
+            <!-- Instructor Description -->
             <div class="row card-body">
-                <span class="input-group-text"><b>Professor Positions:</b>&nbsp;</span>
+                <span class="input-group-text"><b>Instructor Positions:</b>&nbsp;</span>
                 <p class="card-body-text bg-light" style="padding-left: 20px;padding-top: 6px;">
                     <?php echo "{$profArr['position']}" ?>
                     <br>
@@ -21,7 +21,7 @@
                 </p>
             </div>
 
-            <!-- Professor contact -->
+            <!-- Instructor contact -->
             <div class="row card-body">
                 <span class="input-group-text"><b>Contact Information:</b>&nbsp;</span>
                 <div class="input-group mt-3 mb-3">
@@ -41,7 +41,7 @@
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="sectionCollapse">
                 <!-- List of Courses -->
-                <?php $courses = query_prof_courses($conn, $prof_email); ?>
+                <?php $courses = query_prof_courses($conn, $instr_email); ?>
                 <ul class="list-group list-group-flush">
                     <?php for ($i = 0; $i < sizeof($courses); $i++) : ?>
                         <?php
@@ -61,21 +61,21 @@
                 </ul>
             </div>
 
-            <!--User's Professor evaluation -->
+            <!--User's Instructor evaluation -->
             <div class="row input-group mt-3 mb-3">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#profEvalCollapse" aria-expanded="false" aria-controls="profEvalCollapse"><b>Professor Evaluation</b></button>
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#profEvalCollapse" aria-expanded="false" aria-controls="profEvalCollapse"><b>Instructor Evaluation</b></button>
             </div>
             <div class="card card-body collapse" aria-expanded="false" id="profEvalCollapse">
-                <?php if (user_taken_course_with_prof($conn, $prof_email)) : ?>
-                    <?php $myEvals = query_user_prof_eval($conn, $prof_email); ?>
+                <?php if (user_taken_course_with_prof($conn, $instr_email)) : ?>
+                    <?php $myEvals = query_user_prof_eval($conn, $instr_email); ?>
                     <?php if (sizeof($myEvals) == 1) : ?>
                         <div class="row card-title h5 mb-3">
-                            <div class="col" style="padding-left: 15px;"><b>My Professor Review:</b></div>
+                            <div class="col" style="padding-left: 15px;"><b>My Instructor Review:</b></div>
                             <div class="col" style="text-align:right;">
                                 <?php
                                 $_SESSION['prof_eval_type'] = 'edit';
                                 $_SESSION['current_pName'] = "{$profArr['fname']} {$profArr['lname']}";
-                                $_SESSION['current_pEmail'] = $prof_email;
+                                $_SESSION['current_pEmail'] = $instr_email;
                                 $_SESSION['current_cNum'] = $cNum;
                                 $_SESSION['current_cDep'] = $cDep;
                                 $_SESSION['current_cSem'] = $cSem;
@@ -89,11 +89,11 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="input-group mt-3 mb-6">
-                                    <span class="input-group-text bg-light">Professor Rating: </span>
+                                    <span class="input-group-text bg-light">Instructor Rating: </span>
                                     <label class="input-group-text bg-light"><?php echo "{$myEvals[0]['rating']}/10"; ?></label>
                                 </div>
                                 <div class="input-group mt-4 mb-3" style="padding-top: 20px;">
-                                    <div class="card-title h5">Professor Review:
+                                    <div class="card-title h5">Instructor Review:
                                         <div class="card-body bg-light h6 mt-3">
                                             "<?php echo "{$myEvals[0]['review']}"; ?>"
                                         </div>
@@ -104,12 +104,12 @@
                         </ul>
                     <?php else : ?>
                         <div class="row card-title h5 mb-3">
-                            <div class="col" style="padding-left: 15px;"><b>My Professor Review: </b></div>
+                            <div class="col" style="padding-left: 15px;"><b>My Instructor Review: </b></div>
                             <h5 class="mt-3" style="text-align: center">You haven't posted an evaluation for this course! </h5>
                             <?php
                             $_SESSION['prof_eval_type'] = 'add';
                             $_SESSION['current_pName'] = "{$profArr['fname']} {$profArr['lname']}";
-                            $_SESSION['current_pEmail'] = $prof_email;
+                            $_SESSION['current_pEmail'] = $instr_email;
                             $_SESSION['current_cNum'] = $cNum;
                             $_SESSION['current_cDep'] = $cDep;
                             $_SESSION['current_cSem'] = $cSem;
@@ -122,22 +122,22 @@
                     <?php endif; ?>
                 <?php endif; ?>
                 <hr>
-                <!-- Other Student's Professor evaluations -->
+                <!-- Other Student's Instructor evaluations -->
                 <div class="row card-title h5 mb-3">
                     <div class="col" style="padding-left: 15px;">
-                        <b>Other Professor Review(s):</b>
+                        <b>Other Instructor Review(s):</b>
                     </div>
                 </div>
-                <?php $evals = query_prof_evals($conn, $prof_email); ?>
+                <?php $evals = query_prof_evals($conn, $instr_email); ?>
                 <ul class="list-group list-group-flush">
                     <?php for ($i = 0; $i < sizeof($evals); $i++) : ?>
                         <li class="list-group-item">
                             <div class="input-group mt-3 mb-6">
-                                <span class="input-group-text bg-light">Professor Rating: </span>
+                                <span class="input-group-text bg-light">Instructor Rating: </span>
                                 <label class="input-group-text bg-light"><?php echo "{$evals[$i]['rating']}/10"; ?></label>
                             </div>
                             <div class="input-group mt-4 mb-3" style="padding-top: 20px;">
-                                <div class="card-title h5">Professor Review:
+                                <div class="card-title h5">Instructor Review:
                                     <div class="card-body bg-light h6 mt-3">
                                         "<?php echo "{$evals[$i]['review']}"; ?>"
                                     </div>

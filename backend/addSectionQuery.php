@@ -54,7 +54,8 @@ if (isset($_POST['submit'])) {
     if (empty($_POST['sect_instr'])) {
         $sIns = "TBD";
     } else {
-        $sIns = filter_var($_POST['sect_instr'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $sIns = filter_input(INPUT_POST, 'sect_instr', FILTER_SANITIZE_EMAIL);
+        if (!instr_exists($conn,  $sIns)) $sInsErr = "Instructor doesn't not exist!";
     }
     // If no errors from all the required fields
     if (
@@ -64,6 +65,7 @@ if (isset($_POST['submit'])) {
         && empty($sETimeErr)
         && empty($cLocErr)
         && empty($sCapErr)
+        && empty($sInsErr)
         && $sDupErr == 0
     ) {
         if (is_dup_sect_id($conn, $cNum, $cDep, $cSem, $sID)) {
@@ -108,6 +110,7 @@ function add_section(
     $conn->query($query);
 }
 
+// Check if the section id is unique
 function is_dup_sect_id(
     mysqli $conn,
     string $cNum,
@@ -118,6 +121,14 @@ function is_dup_sect_id(
     $query = "SELECT *
         FROM section
         WHERE c_num='$cNum' AND cdep_title='$cDep' AND c_sem='$cSem' AND sect_id='$sID';";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return sizeof($row) == 1;
+}
+
+function instr_exists(mysqli $conn, string $ins_email)
+{
+    $query = "SELECT * FROM instructor WHERE email='$ins_email';";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return sizeof($row) == 1;

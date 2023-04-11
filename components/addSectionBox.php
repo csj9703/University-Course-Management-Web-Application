@@ -65,7 +65,7 @@
                 <!-- Section Instructor Input -->
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text">Instructor: </span>
-                    <input type="text" name="sect_instr" class="form-control <?php echo $sInsErr ? 'is-invalid' : null; ?>" placeholder="Enter the Section Instructor, leave empty for TBD">
+                    <input type="text" name="sect_instr" class="form-control <?php echo $sInsErr ? 'is-invalid' : null; ?>" placeholder="Enter the E-mail of the Section Instructor, leave empty for TBD">
                     <div class="invalid-feedback">
                         <?php echo $sInsErr; ?>
                     </div>

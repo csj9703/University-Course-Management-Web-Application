@@ -58,7 +58,7 @@ function query_course_requitsites(mysqli $conn, string $cNum, string $cDep_title
 // Query course sections
 function query_course_sections(mysqli $conn, string $cNum, string $cDep_title, string $cSem)
 {
-    $query = "SELECT sect_id, day, time, location, capacity, prof_email 
+    $query = "SELECT sect_id, day, time, location, capacity, instr_email 
         FROM section 
         WHERE c_num='$cNum' AND cdep_title='$cDep_title' AND c_Sem='$cSem';";
     $result = mysqli_query($conn, $query);
@@ -66,11 +66,11 @@ function query_course_sections(mysqli $conn, string $cNum, string $cDep_title, s
     return $row;
 }
 
-// Query section professors
-function query_section_prof(mysqli $conn, string $prof_email)
+// Query section instructors
+function query_section_prof(mysqli $conn, string $instr_email)
 {
-    $query = "SELECT * FROM professor 
-        WHERE email='$prof_email';";
+    $query = "SELECT * FROM instructor 
+        WHERE email='$instr_email';";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $row[0];
