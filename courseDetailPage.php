@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "config/database.php";
+include "backend/courseSearchQuery.php";
 include "backend/courseDetailQuery.php";
 if (!isset($_SESSION['logged_in'])) {
     header("Location: index.php");

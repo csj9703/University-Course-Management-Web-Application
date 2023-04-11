@@ -1,6 +1,10 @@
 <div class="card text-dark bg-light mb-3" style="margin-top: 20px;margin-right: auto; margin-left: auto;max-width: 1000px;">
     <?php if ($_SESSION['privilege'] > 0 && isset($_SESSION['search_results'])) : ?>
         <div class="card-header">
+            <?php
+            $query = build_query($cond_arr, $base_query);
+            $_SESSION['search_results'] = query_search($conn, $query);
+            ?>
             <a href="searchResultPage.php" role="button" class="btn btn-primary me-3">Go Back to search results</a>
         </div>
     <?php endif; ?>
